@@ -13,6 +13,7 @@ import { ProviderLayoutComponent } from './components/providerpage/provider-layo
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     IonicModule.forRoot(),
     FormsModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { response } from './../../../model/response';
 import { Component } from '@angular/core';
 import { register } from '../../../model/register';
 import { RegisteruserService } from '../../../services/registerservices/registeruser.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -35,13 +36,17 @@ export class RegisterComponent {
           console.log(error);
         },
         complete:()=>{
-          alert("Registered");
           console.log(this.registerResponse);
         }
       });
     }
     else{
-      alert("password mismatch")
+      Swal.fire({
+        title: 'Password Mismatch',
+        text: 'The password and confirm password do not match. Please try again.',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+      });
     }
     
   }
