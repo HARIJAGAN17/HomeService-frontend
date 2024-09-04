@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { register } from '../../../model/register';
 import { RegisteruserService } from '../../../services/registerservices/registeruser.service';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,25 +11,33 @@ import Swal from 'sweetalert2';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  username:string='';
-  password:string='';
-  email:string='';
-  confirmpassword:string='';
-  role:string='';
+  
 
   registerData:register={userName:'',email:'',password:''};
 
   registerResponse:response={status:'',message:''};
 
-  constructor(private registerServie:RegisteruserService){}
+  registerForm:FormGroup
+
+  constructor(private registerServie:RegisteruserService,private fb:FormBuilder){
+    
+    this.registerForm = this.fb.group({
+      username:['',Validators.required],
+      email:['',[Validators.required,Validators.email]],
+      password:['',Validators.required],
+      confirmPassword:['',Validators.required],
+      role:['',Validators.required]
+    });
+  }
 
   Register(){
-    this.registerData.email=this.email;
-    this.registerData.password=this.password;
-    this.registerData.userName = this.username;
+    this.registerData.userName = this.registerForm.get('username')?.value;
+    this.registerData.email =this.registerForm.get('email')?.value;
+    this.registerData.password=this.registerForm.get('password')?.value;
+    this.registerData.userName = this.registerForm.get('username')?.value;
 
-    if(this.password==this.confirmpassword){
-      this.registerServie.RegisterUser(this.registerData,this.role).subscribe({
+    if(this.registerForm.get('password')?.value==this.registerForm.get('confirmPassword')?.value){
+      this.registerServie.RegisterUser(this.registerData,this.registerForm.get('role')?.value).subscribe({
         next:(responseData:response)=>{
           this.registerResponse=responseData;
         },
@@ -37,6 +46,23 @@ export class RegisterComponent {
         },
         complete:()=>{
           console.log(this.registerResponse);
+          console.log(this.registerForm.value);
+          const status = this.registerResponse.status.toLowerCase();
+          if (status === 'success') {
+            Swal.fire({
+              title: 'Registration Successful',
+              text: 'You have registered successfully.',
+              icon: 'success',
+              confirmButtonText: 'OK'
+            });
+          } else if (status === 'failed') {
+            Swal.fire({
+              title: 'Registration Failed',
+              text: this.registerResponse.message,
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
+          }
         }
       });
     }

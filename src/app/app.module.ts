@@ -12,7 +12,7 @@ import { LandingcontentComponent } from './components/home/landingcontent/landin
 import { ProviderLayoutComponent } from './components/providerpage/provider-layout/provider-layout.component';
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
 import { provideHttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
@@ -33,6 +33,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     IonicModule.forRoot(),
     FormsModule,
     SweetAlert2Module.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
