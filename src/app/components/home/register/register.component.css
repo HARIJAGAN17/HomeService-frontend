@@ -20,6 +20,8 @@
 }
 .wrapper {
     width: 420px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background: transparent;
     border:2px solid rgba(255, 255, 255, .2);
     backdrop-filter:blur(20px);
@@ -107,4 +109,62 @@
 }
 .register-link p a:hover{
     text-decoration: underline;
+}
+
+/* style for dropdown */
+
+/* Styling for the new select box container */
+.role-select-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.role-select-box select {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /* Firefox */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.role-select-box select:focus {
+    border-color: purple; /* Change to your primary color */
+    outline: none;
+    box-shadow: 0 2px 4px rgba(128, 0, 128, 0.829);
+}
+
+/* Custom dropdown arrow using pseudo-element */
+.role-select-box::after {
+    content: '\f078'; /* FontAwesome down arrow */
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+/* Optional: To adjust the icon's size and position */
+.role-select-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+.role-select-box option{
+    color: black;
 }

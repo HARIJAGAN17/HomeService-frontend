@@ -1,45 +1,32 @@
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="text-center mt-5">Register</h2>
-            <form>
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter username" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter password" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </form>
-        </div>
-    </div>
-</div> -->
 <div class="register-container">
     <div class="wrapper">
-        <form action="">
+        <form action="" (ngSubmit)="Register()">
             <h1>Register</h1>
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="email" placeholder="Email Address" required>
+                <input type="email" [(ngModel)]="email" name="email" placeholder="Email Address" required>
                 <i class='bx bxs-envelope'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Confirm Password" required>
+                <input type="password" [(ngModel)]="confirmpassword" name="confirmPassword" placeholder="Confirm Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
+            <div class="role-select-box">
+                <select [(ngModel)]="role" name="role" required>
+                    <option value="" disabled selected>Choose Role</option>
+                    <option value="customer">Customer</option>
+                    <option value="provider">Provider</option>
+                    <!-- <option value="admin">Admin</option> -->
+                </select>
+                <i class='bx bxs-user'></i>
+            </div>            
             <button type="submit" class="btn">Register</button>
             <div class="register-link">
                 <p>Already have an account? <a [routerLink]="['/home/login']">Login</a></p>
