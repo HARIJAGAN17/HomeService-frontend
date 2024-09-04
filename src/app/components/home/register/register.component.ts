@@ -60,21 +60,24 @@ export class RegisterComponent {
                 title: 'Registration Successful',
                 text: 'You have registered successfully.',
                 icon: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                timer: 3000
               });
             } else if (status === 'failed') {
               Swal.fire({
                 title: 'Registration Failed',
                 text: this.registerResponse.message,
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                timer: 3000
               });
             } else if (status === 'passwordcondition') {
               Swal.fire({
                 title: 'Registration Failed',
                 text: this.registerResponse.message,
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                timer: 3000
               });
             }
           }
@@ -86,6 +89,7 @@ export class RegisterComponent {
           text: 'The password and confirm password do not match. Please try again.',
           icon: 'warning',
           confirmButtonText: 'OK',
+          timer: 3000
         });
       }
     }else{
@@ -94,6 +98,7 @@ export class RegisterComponent {
         text: 'Enter the details properly',
         icon: 'warning',
         confirmButtonText: 'OK',
+        timer: 3000
       });
     }
     

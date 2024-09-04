@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '../../../model/login';
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -31,14 +32,26 @@ export class LoginComponent {
       },
       error:(error)=>{
         console.log(error);
+        if(error.status===401){
+          Swal.fire({
+            icon: "error",
+            title: "No user exist",
+            text:'please check your password and username',
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }
       },
       complete:()=>{
         console.log("completed successfully");
+        Swal.fire({
+          icon: "success",
+          title: "got token",
+          showConfirmButton: false,
+          timer: 2000
+        });
       }
     })
-
-
-    this.router.navigate(['/provider']);
   }
 
 
