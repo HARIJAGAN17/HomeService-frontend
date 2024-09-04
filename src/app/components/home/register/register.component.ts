@@ -36,40 +36,56 @@ export class RegisterComponent {
     this.registerData.password=this.registerForm.get('password')?.value;
     this.registerData.userName = this.registerForm.get('username')?.value;
 
-    if(this.registerForm.get('password')?.value==this.registerForm.get('confirmPassword')?.value){
-      this.registerServie.RegisterUser(this.registerData,this.registerForm.get('role')?.value).subscribe({
-        next:(responseData:response)=>{
-          this.registerResponse=responseData;
-        },
-        error:(error)=>{
-          console.log(error);
-        },
-        complete:()=>{
-          console.log(this.registerResponse);
-          console.log(this.registerForm.value);
-          const status = this.registerResponse.status.toLowerCase();
-          if (status === 'success') {
-            Swal.fire({
-              title: 'Registration Successful',
-              text: 'You have registered successfully.',
-              icon: 'success',
-              confirmButtonText: 'OK'
-            });
-          } else if (status === 'failed') {
-            Swal.fire({
-              title: 'Registration Failed',
-              text: this.registerResponse.message,
-              icon: 'error',
-              confirmButtonText: 'OK'
-            });
+    if(this.registerForm.valid){
+      if(this.registerForm.get('password')?.value==this.registerForm.get('confirmPassword')?.value){
+        this.registerServie.RegisterUser(this.registerData,this.registerForm.get('role')?.value).subscribe({
+          next:(responseData:response)=>{
+            this.registerResponse=responseData;
+          },
+          error:(error)=>{
+            console.log(error);
+          },
+          complete:()=>{
+            console.log(this.registerResponse);
+            console.log(this.registerForm.value);
+            const status = this.registerResponse.status.toLowerCase();
+            if (status === 'success') {
+              Swal.fire({
+                title: 'Registration Successful',
+                text: 'You have registered successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+              });
+            } else if (status === 'failed') {
+              Swal.fire({
+                title: 'Registration Failed',
+                text: this.registerResponse.message,
+                icon: 'error',
+                confirmButtonText: 'OK'
+              });
+            } else if (status === 'passwordcondition') {
+              Swal.fire({
+                title: 'Registration Failed',
+                text: this.registerResponse.message,
+                icon: 'error',
+                confirmButtonText: 'OK'
+              });
+            }
           }
-        }
-      });
-    }
-    else{
+        });
+      }
+      else{
+        Swal.fire({
+          title: 'Password Mismatch',
+          text: 'The password and confirm password do not match. Please try again.',
+          icon: 'warning',
+          confirmButtonText: 'OK',
+        });
+      }
+    }else{
       Swal.fire({
-        title: 'Password Mismatch',
-        text: 'The password and confirm password do not match. Please try again.',
+        title: 'Invalid details',
+        text: 'Enter the details properly',
         icon: 'warning',
         confirmButtonText: 'OK',
       });
