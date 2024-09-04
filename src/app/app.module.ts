@@ -11,6 +11,8 @@ import { LoginComponent } from './components/home/login/login.component';
 import { LandingcontentComponent } from './components/home/landingcontent/landingcontent.component';
 import { ProviderLayoutComponent } from './components/providerpage/provider-layout/provider-layout.component';
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
+import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,9 @@ import { ProvidercontentComponent } from './components/providerpage/providercont
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
+    FormsModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
