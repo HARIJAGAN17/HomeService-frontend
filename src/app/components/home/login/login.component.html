@@ -1,34 +1,14 @@
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="text-center mt-5">Login</h2>
-            <form>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter password" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
-        </div>
-    </div>
-</div> -->
-
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <div class="login-container">
     <div class="wrapper">
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginform">
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required>
+          <input type="text" formControlName="username"  name="username" placeholder="Username" required>
           <i class='bx bxs-user'></i>
         </div>
         <div class="input-box">
-          <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+          <input type="password" formControlName="password"  name="password" placeholder="Password" required>
           <i class='bx bxs-lock-alt'></i>
         </div>
         <div class="remember-forgot">

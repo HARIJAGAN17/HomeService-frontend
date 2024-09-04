@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '../../../model/login';
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
@@ -10,17 +11,20 @@ import { LoginserviceService } from '../../../services/loginservices/loginservic
 })
 export class LoginComponent {
 
-  username:string='';
-  password:string='';
+  loginform:FormGroup;
 
-
-  constructor(private router: Router,private loginService:LoginserviceService) { }
+  constructor(private router: Router,private loginService:LoginserviceService,private fb:FormBuilder) {
+        this.loginform = this.fb.group({
+          username:['',Validators.required],
+          password:['',Validators.required],
+        });
+   }
 
   loginData:Login = {userName:'',password:''};
   
   onSubmit():void {
-    this.loginData.userName = this.username;
-    this.loginData.password = this.password;
+    this.loginData.userName = this.loginform.get("username")?.value;
+    this.loginData.password = this.loginform.get("password")?.value;
     this.loginService.getToken(this.loginData).subscribe({
       next:(data:any)=>{
         console.log(data);
