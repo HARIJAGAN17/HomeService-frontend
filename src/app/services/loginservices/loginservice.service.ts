@@ -16,4 +16,8 @@ export class LoginserviceService {
    getToken(loginData:Login):Observable<any>{
     return this.http.post<any>(this.bseUrl,loginData);
    }
+
+   isLoggedIn(){
+    return localStorage.getItem('token')!=null;
+   }
 }

@@ -28,6 +28,7 @@ export class LoginComponent {
     this.loginData.password = this.loginform.get("password")?.value;
     this.loginService.getToken(this.loginData).subscribe({
       next:(data:any)=>{
+        localStorage.setItem("token",data.token);
         console.log(data);
       },
       error:(error)=>{

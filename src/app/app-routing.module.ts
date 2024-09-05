@@ -7,6 +7,7 @@ import { LoginComponent } from './components/home/login/login.component';
 import { LandingcontentComponent } from './components/home/landingcontent/landingcontent.component';
 import { ProviderLayoutComponent } from './components/providerpage/provider-layout/provider-layout.component';
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -16,7 +17,10 @@ const routes: Routes = [
     {path:"login",component:LoginComponent},
     {path:"register",component:RegisterComponent},
   ]},
-  {path:"provider",component:ProviderLayoutComponent}
+  {path:"provider",component:ProviderLayoutComponent,canActivate:[AuthGuard],children:[
+    {path:"",redirectTo:"providerservice",pathMatch:"full"},
+    {path:"providerservice",component:ProvidercontentComponent}
+  ]}
   
 ];
 
