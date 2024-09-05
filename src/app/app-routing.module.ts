@@ -8,6 +8,8 @@ import { LandingcontentComponent } from './components/home/landingcontent/landin
 import { ProviderLayoutComponent } from './components/providerpage/provider-layout/provider-layout.component';
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
 import { AuthGuard } from './shared/auth.guard';
+import { CustomerLayoutComponent } from './components/customerPage/customer-layout/customer-layout.component';
+import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -20,6 +22,10 @@ const routes: Routes = [
   {path:"provider",component:ProviderLayoutComponent,canActivate:[AuthGuard],children:[
     {path:"",redirectTo:"providerservice",pathMatch:"full"},
     {path:"providerservice",component:ProvidercontentComponent}
+  ]},
+  {path:"customer",component:CustomerLayoutComponent,children:[
+    {path:"",redirectTo:"customerBooking",pathMatch:'full'},
+    {path:"customerBooking",component:CustomerContentComponent}
   ]}
   
 ];

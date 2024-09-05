@@ -15,6 +15,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS, provideHttpClient } from '@angular
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { TokeninterceptorService } from './services/interceptor/tokeninterceptor.service';
+import { CustomerLayoutComponent } from './components/customerPage/customer-layout/customer-layout.component';
+import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { TokeninterceptorService } from './services/interceptor/tokeninterceptor
     LoginComponent,
     LandingcontentComponent,
     ProviderLayoutComponent,
-    ProvidercontentComponent
+    ProvidercontentComponent,
+    CustomerLayoutComponent,
+    CustomerContentComponent
   ],
   imports: [
     BrowserModule,
