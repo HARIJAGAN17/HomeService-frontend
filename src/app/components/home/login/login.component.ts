@@ -14,7 +14,7 @@ export class LoginComponent {
 
   loginform:FormGroup;
 
-  constructor(private router: Router,private loginService:LoginserviceService,private fb:FormBuilder) {
+  constructor(private router: Router,private loginService:LoginserviceService,private fb:FormBuilder,private route:Router) {
         this.loginform = this.fb.group({
           username:['',Validators.required],
           password:['',Validators.required],
@@ -29,6 +29,7 @@ export class LoginComponent {
     this.loginService.getToken(this.loginData).subscribe({
       next:(data:any)=>{
         localStorage.setItem("token",data.token);
+        this.route.navigate(['/provider'])
         console.log(data);
       },
       error:(error)=>{
@@ -45,12 +46,6 @@ export class LoginComponent {
       },
       complete:()=>{
         console.log("completed successfully");
-        Swal.fire({
-          icon: "success",
-          title: "got token",
-          showConfirmButton: false,
-          timer: 2000
-        });
       }
     })
   }
