@@ -30,7 +30,6 @@ export class LoginComponent {
       next:(data:any)=>{
         localStorage.setItem("token",data.token);
         this.route.navigate(['/provider'])
-        console.log(data);
       },
       error:(error)=>{
         console.log(error);

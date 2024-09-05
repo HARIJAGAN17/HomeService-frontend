@@ -10,7 +10,6 @@ export class LoginserviceService {
 
   bseUrl:string="http://localhost:5065/api/Auth/login"
   constructor(private http:HttpClient) {
-
    }
 
    getToken(loginData:Login):Observable<any>{
@@ -22,6 +21,7 @@ export class LoginserviceService {
    }
 
    fetchTokenValue(){
-    return localStorage.getItem('token')||"no token";
+    console.log(localStorage.getItem('token'));
+    return localStorage.getItem('token');
    }
 }

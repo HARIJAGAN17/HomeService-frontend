@@ -11,9 +11,10 @@ import { LoginComponent } from './components/home/login/login.component';
 import { LandingcontentComponent } from './components/home/landingcontent/landingcontent.component';
 import { ProviderLayoutComponent } from './components/providerpage/provider-layout/provider-layout.component';
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { TokeninterceptorService } from './services/interceptor/tokeninterceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,13 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     IonicModule.forRoot(),
     FormsModule,
     SweetAlert2Module.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(),
+    { provide: HTTP_INTERCEPTORS, useClass: TokeninterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
