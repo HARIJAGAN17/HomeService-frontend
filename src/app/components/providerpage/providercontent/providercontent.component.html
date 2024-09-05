@@ -6,8 +6,6 @@
           <table class="table table-bordered table-hover">
             <thead class="table-header">
               <tr>
-                <th>Name</th>
-                <th>Email</th>
                 <th>Service</th>
                 <th>Price</th>
                 <th>Description</th>
@@ -15,37 +13,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>John Doe</td>
-                <td>johndoeexample.com</td>
-                <td>Web Development</td>
-                <td>$500</td>
-                <td>Full-stack web development services.</td>
-                <td>New York</td>
-              </tr>
-              <tr>
-                <td>Jane Smith</td>
-                <td>janesmithexample.com</td>
-                <td>Graphic Design</td>
-                <td>$300</td>
-                <td>Custom logo and graphic design services.</td>
-                <td>Los Angeles</td>
-              </tr>
-              <tr>
-                <td>Emily Johnson</td>
-                <td>emilyjexample.com</td>
-                <td>SEO Optimization</td>
-                <td>$400</td>
-                <td>Search engine optimization and marketing services.</td>
-                <td>Chicago</td>
-              </tr>
-              <tr>
-                <td>Michael Brown</td>
-                <td>michaelbexample.com</td>
-                <td>Content Writing</td>
-                <td>$250</td>
-                <td>Professional content writing and copywriting services.</td>
-                <td>San Francisco</td>
+              <tr *ngFor="let item of allServices">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.location}}</td>
               </tr>
             </tbody>
           </table>

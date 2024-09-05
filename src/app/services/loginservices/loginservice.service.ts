@@ -20,4 +20,8 @@ export class LoginserviceService {
    isLoggedIn(){
     return localStorage.getItem('token')!=null;
    }
+
+   fetchTokenValue(){
+    return localStorage.getItem('token')||"no token";
+   }
 }
