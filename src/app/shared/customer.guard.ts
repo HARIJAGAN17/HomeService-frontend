@@ -17,7 +17,7 @@ export class CustomerGuard implements CanActivate {
     if (role.toLowerCase() === 'customer') {
       return true;
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/noauth']);
       return false;
     }
   }

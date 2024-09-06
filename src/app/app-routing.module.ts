@@ -12,6 +12,8 @@ import { CustomerLayoutComponent } from './components/customerPage/customer-layo
 import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
 import { ProviderGuard } from './shared/provider.guard';
 import { CustomerGuard } from './shared/customer.guard';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path:"customer",component:CustomerLayoutComponent,canActivate:[AuthGuard,CustomerGuard],children:[
     {path:"",redirectTo:"customerBooking",pathMatch:'full'},
     {path:"customerBooking",component:CustomerContentComponent}
-  ]}
+  ]},
+  {path:"noauth",component:ForbiddenpageComponent},
+  {path:"**",component:PagenotfoundComponent},
   
 ];
 

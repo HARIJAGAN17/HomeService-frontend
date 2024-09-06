@@ -17,7 +17,7 @@ export class ProviderGuard implements CanActivate {
     if (role.toLowerCase() === 'provider') { 
       return true;
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/noauth']);
       return false;
     }
   }
