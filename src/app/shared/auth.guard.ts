@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
   canActivate() {
     // Implement your authentication logic here
     if(this.loginService.isLoggedIn()){
+      this.loginService.haveAccess();
       return true;
     }
    else{
