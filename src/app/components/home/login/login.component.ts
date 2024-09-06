@@ -29,7 +29,15 @@ export class LoginComponent {
     this.loginService.getToken(this.loginData).subscribe({
       next:(data:any)=>{
         localStorage.setItem("token",data.token);
-        this.route.navigate(['/provider'])
+
+        const role = this.loginService.haveAccess();
+        if (role.toLowerCase() === 'provider'){
+          this.route.navigate(['/provider'])
+        }
+        else if (role.toLowerCase() === 'customer'){
+          this.route.navigate(['/customer'])
+        }
+        
       },
       error:(error)=>{
         console.log(error);

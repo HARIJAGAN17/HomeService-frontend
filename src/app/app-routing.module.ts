@@ -10,6 +10,8 @@ import { ProvidercontentComponent } from './components/providerpage/providercont
 import { AuthGuard } from './shared/auth.guard';
 import { CustomerLayoutComponent } from './components/customerPage/customer-layout/customer-layout.component';
 import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
+import { ProviderGuard } from './shared/provider.guard';
+import { CustomerGuard } from './shared/customer.guard';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -19,11 +21,11 @@ const routes: Routes = [
     {path:"login",component:LoginComponent},
     {path:"register",component:RegisterComponent},
   ]},
-  {path:"provider",component:ProviderLayoutComponent,canActivate:[AuthGuard],children:[
+  {path:"provider",component:ProviderLayoutComponent,canActivate:[AuthGuard,ProviderGuard],children:[
     {path:"",redirectTo:"providerservice",pathMatch:"full"},
     {path:"providerservice",component:ProvidercontentComponent}
   ]},
-  {path:"customer",component:CustomerLayoutComponent,children:[
+  {path:"customer",component:CustomerLayoutComponent,canActivate:[AuthGuard,CustomerGuard],children:[
     {path:"",redirectTo:"customerBooking",pathMatch:'full'},
     {path:"customerBooking",component:CustomerContentComponent}
   ]}
