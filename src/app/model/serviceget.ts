@@ -1,9 +1,11 @@
 export type ServiceResponse = {
-    serviceId: number;
-    name: string;
-    description: string;
-    price: number;
-    status: string;
-    location: string;
-    providerId: string;
+    serviceId: number;        
+    serviceName: string;      
+    category: string;         
+    description: string;      
+    price: number;            
+    experience: number;       
+    providerName: string;     
+    providerId: string;       
+    providerEmail: string;    
 };

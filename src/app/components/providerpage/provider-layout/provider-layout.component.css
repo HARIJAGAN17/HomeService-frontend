@@ -17,3 +17,15 @@
 #signoutButton{
     cursor: pointer;
 }
+
+  .nav-link:hover {
+    background-color: #495057; /* Slightly lighter dark color */
+    border-radius: 8px;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
