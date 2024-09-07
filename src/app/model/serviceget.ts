@@ -7,5 +7,6 @@ export type ServiceResponse = {
     experience: number;       
     providerName: string;     
     providerId: string;       
-    providerEmail: string;    
+    providerEmail: string;
+    location:string;    
 };
