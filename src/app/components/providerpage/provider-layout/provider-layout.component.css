@@ -1,31 +1,35 @@
-.left
-{
-    height: 100vh;
+.left {
+    height: 100vh; 
     width: 20%;
     background-color: red;
-}
-
-.right{
-    position: absolute;
-    top: 0px;
-    right:0px;
-    height: 100vh;
-    background-color: blue;
+    position: fixed; 
+    top: 0;
+    left: 0;
+  }
+  
+  .right {
+    margin-left: 20%; 
+    height: 100vh; 
+    background-color: #1865d198;
     width: 80%;
-}
-
-#signoutButton{
+    overflow: auto; 
+    position: relative;
+    padding: 20px; 
+  }
+  
+  #signoutButton {
     cursor: pointer;
-}
-
+  }
+  
   .nav-link:hover {
-    background-color: #495057; /* Slightly lighter dark color */
+    background-color: #495057;
     border-radius: 8px;
   }
-
+  
   .nav-link {
     padding: 10px 15px;
     display: flex;
     align-items: center;
     font-size: 16px;
   }
+  
