@@ -27,7 +27,7 @@
         <div class="card-footer d-flex justify-content-between align-items-center">
           <small id="footerText" class="text-muted">Contact: {{item.providerEmail}}</small>
           <div>
-            <button class="btn btn-warning btn-sm me-2">Update</button>
+            <button class="btn btn-warning btn-sm me-2" (click)="togglePopUp()">Update</button>
             <button (click)="onDelete(item.serviceId)" class="btn btn-danger btn-sm">Delete</button>
           </div>
         </div>
@@ -36,4 +36,53 @@
   </div>
 </div>
 
+<!-- --------------------------------popupform------------------------------------------------------------ -->
 
+<div class="popup-container" *ngIf="showPopUp">
+  <div class="popup-content">
+    <span class="close-btn" (click)="togglePopUp()"><i class="fa-solid fa-xmark closebtn"></i></span>
+    <h2 class="text-center mb-4">Update</h2>
+    <form [formGroup]="updateForm">
+      
+      <div class="form-group">
+        <label for="providerName">Provider</label>
+        <input type="text" name="providerName" class="form-control" id="providerName" placeholder="Enter provider name" formControlName="providerName" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="experience">Experience</label>
+        <input type="number" name="experience" class="form-control" id="experience" placeholder="Enter years of experience" formControlName="experience" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" name="category" class="form-control" id="category" placeholder="Enter service category" formControlName="category" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="serviceName">Service</label>
+        <input type="text" name="serviceName" class="form-control" id="serviceName" placeholder="Enter service name" formControlName="serviceName" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" name="price" class="form-control" id="price" placeholder="Enter price" formControlName="price" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" name="location" class="form-control" id="location" placeholder="Enter location" formControlName="location" required>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" class="form-control" id="description" placeholder="Enter service description" formControlName="description" rows="3" required></textarea>
+      </div>
+      
+      
+
+      <button class="btn btn-primary btn-block" style="margin-top:15px;" (click)="togglePopUp()">Submit</button>
+    </form>
+  </div>
+</div>

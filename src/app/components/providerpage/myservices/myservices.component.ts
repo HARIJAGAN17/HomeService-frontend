@@ -3,6 +3,7 @@ import { ServiceResponse } from '../../../model/serviceget';
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-myservices',
   templateUrl: './myservices.component.html',
@@ -13,7 +14,14 @@ export class MyservicesComponent {
   filteredServices: ServiceResponse[] = []; 
   categories: string[] = []; 
 
-  constructor(private providerService: ProviderCrudService,private loginService:LoginserviceService) {}
+  updateForm:FormGroup;
+
+  constructor(private providerService: ProviderCrudService,private loginService:LoginserviceService,private fb:FormBuilder) {
+
+    this.updateForm = this.fb.group({
+
+    });
+  }
 
   ngOnInit(): void {
     this.getServices();
@@ -81,5 +89,12 @@ export class MyservicesComponent {
       }
     });
       
+  }
+
+
+  showPopUp:boolean=false;
+
+  togglePopUp(){
+    this.showPopUp=!this.showPopUp;
   }
 }
