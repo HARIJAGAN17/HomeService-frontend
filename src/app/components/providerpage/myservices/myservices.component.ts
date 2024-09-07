@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ServiceResponse } from '../../../model/serviceget';
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-myservices',
   templateUrl: './myservices.component.html',
@@ -16,6 +16,10 @@ export class MyservicesComponent {
   constructor(private providerService: ProviderCrudService,private loginService:LoginserviceService) {}
 
   ngOnInit(): void {
+    this.getServices();
+  }
+
+  getServices():void{
     this.providerService.getServices().subscribe({
       next: (responseData: ServiceResponse[]) => {
         
@@ -46,6 +50,36 @@ export class MyservicesComponent {
   }
 
   onDelete(id:number){
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
 
+        this.providerService.delteService(id).subscribe({
+          next:(response:any)=>{
+            this.getServices();
+            console.log(response);
+          },
+          error:(error)=>{
+            console.log(error);
+          },
+          complete:()=>{
+            console.log("completed")
+          }
+        })
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your service has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+      
   }
 }
