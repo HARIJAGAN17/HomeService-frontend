@@ -14,6 +14,7 @@ import { ProviderGuard } from './shared/provider.guard';
 import { CustomerGuard } from './shared/customer.guard';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage.component';
+import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -24,8 +25,9 @@ const routes: Routes = [
     {path:"register",component:RegisterComponent},
   ]},
   {path:"provider",component:ProviderLayoutComponent,canActivate:[AuthGuard,ProviderGuard],children:[
-    {path:"",redirectTo:"providerservice",pathMatch:"full"},
-    {path:"providerservice",component:ProvidercontentComponent}
+    {path:"",redirectTo:"allServices",pathMatch:"full"},
+    {path:"allServices",component:ProvidercontentComponent},
+    {path:"myservice",component:MyservicesComponent}
   ]},
   {path:"customer",component:CustomerLayoutComponent,canActivate:[AuthGuard,CustomerGuard],children:[
     {path:"",redirectTo:"customerBooking",pathMatch:'full'},

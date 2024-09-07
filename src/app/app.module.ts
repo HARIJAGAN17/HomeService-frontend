@@ -19,6 +19,7 @@ import { CustomerLayoutComponent } from './components/customerPage/customer-layo
 import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
 import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     CustomerLayoutComponent,
     CustomerContentComponent,
     ForbiddenpageComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    MyservicesComponent
   ],
   imports: [
     BrowserModule,
