@@ -30,7 +30,8 @@ export class LoginComponent {
       next:(data:any)=>{
         localStorage.setItem("token",data.token);
 
-        const role = this.loginService.haveAccess();
+        const payload = this.loginService.haveAccess();
+        const role = payload.UserRole;
         if (role.toLowerCase() === 'provider'){
           this.route.navigate(['/provider'])
         }

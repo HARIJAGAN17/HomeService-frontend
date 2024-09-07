@@ -11,7 +11,8 @@ export class ProviderGuard implements CanActivate {
   constructor(private loginService: LoginserviceService, private router: Router) {}
 
   canActivate(): boolean {
-    const role = this.loginService.haveAccess();
+    const payload = this.loginService.haveAccess();
+    const role = payload.UserRole;
     console.log('ProviderGuard role:', role);
     
     if (role.toLowerCase() === 'provider') { 

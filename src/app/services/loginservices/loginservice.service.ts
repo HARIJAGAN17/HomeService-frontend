@@ -21,7 +21,7 @@ export class LoginserviceService {
    }
 
    fetchTokenValue(){
-    console.log(localStorage.getItem('token'));
+    //console.log(localStorage.getItem('token'));
     return localStorage.getItem('token');
    }
 
@@ -35,8 +35,8 @@ export class LoginserviceService {
         try {
             var _atobData = atob(_extractedToken);
             var _finalData = JSON.parse(_atobData);
-            console.log(_finalData);
-            return _finalData.UserRole;
+            //console.log(_finalData);
+            return _finalData;
         } catch (error) {
             console.error("Error decoding token:", error);
             return null;
