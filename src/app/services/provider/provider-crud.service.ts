@@ -17,4 +17,10 @@ export class ProviderCrudService {
   getServices():Observable<ServiceResponse[]>{
     return this.http.get<ServiceResponse[]>(this.baseUrl);
   }
+
+  delteService(id:number):Observable<any>{
+    return this.http.delete<any>(`${this.baseUrl}/${id}`)
+  }
+  
+  
 }

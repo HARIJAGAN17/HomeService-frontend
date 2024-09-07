@@ -44,4 +44,8 @@ export class MyservicesComponent {
       this.filteredServices = this.allServices.filter(service => service.category === selectedCategory);
     }
   }
+
+  onDelete(id:number){
+
+  }
 }
