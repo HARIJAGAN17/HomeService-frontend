@@ -10,13 +10,17 @@ import { ProviderCrudService } from '../../../services/provider/provider-crud.se
 export class ProvidercontentComponent implements OnInit {
 
   allServices: ServiceResponse[] = []; 
+  filteredServices: ServiceResponse[] = []; 
+  categories: string[] = []; 
 
   constructor(private providerService: ProviderCrudService) {}
 
-  ngOnInit(): void { // Correct lifecycle hook name
+  ngOnInit(): void {
     this.providerService.getServices().subscribe({
       next: (responseData: ServiceResponse[]) => {
         this.allServices = responseData;
+        this.filteredServices = responseData; 
+        this.categories = [...new Set(responseData.map(service => service.category))];
       },
       error: (error) => {
         if (error.status === 401) {
@@ -24,5 +28,16 @@ export class ProvidercontentComponent implements OnInit {
         }
       }
     });
+  }
+
+  onCategoryChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedCategory = selectElement.value;
+
+    if (selectedCategory === '') {
+      this.filteredServices = this.allServices; 
+    } else {
+      this.filteredServices = this.allServices.filter(service => service.category === selectedCategory);
+    }
   }
 }

@@ -1,7 +1,18 @@
 <div class="container mt-4">
+  <div>
+    <h1>Available Services</h1>
+    <div class="fileterDiv mb-4" style="width: 200px;">
+      <label for="categoryFilter" class="form-label">Filter by Category:</label>
+      <select id="categoryFilter" class="form-select" (change)="onCategoryChange($event)">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+      </select>
+    </div>
+  </div>
+
   <div class="row">
-    <div class="col-md-4" *ngFor="let item of allServices">
-      <div class="card mb-4" style="min-height: 200px;"> <!-- Increased height -->
+    <div class="col-md-4" *ngFor="let item of filteredServices">
+      <div class="card mb-4" style="min-height: 200px;">
         <div class="card-body" style="overflow: hidden;">
           <h5 class="card-title">Provider: {{item.providerName}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Experience: {{item.experience}} years</h6>

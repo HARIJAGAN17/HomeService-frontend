@@ -13,3 +13,26 @@
     color: white;
   }
   
+  .container {
+    padding: 10px;
+  }
+  
+  .container h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border: 3px solid #1d3557a4;
+    padding-bottom: 10px;
+    background-color: rgba(245, 245, 245, 0.311);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    border-radius: 8px; 
+    transform: translateY(-4px);
+}
+
+  
+  .fileterDiv label{
+    color: whitesmoke;
+  }
