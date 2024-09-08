@@ -27,7 +27,7 @@
           <div class="card-footer d-flex justify-content-between align-items-center">
             <small class="text-muted">Contact: {{item.providerEmail}}</small>
             <div>
-                <button type="button" class="btn btn-success">Book</button>
+                <button type="button" class="btn btn-success" (click)="onBook(item)">Book</button>
             </div>
           </div>
         </div>

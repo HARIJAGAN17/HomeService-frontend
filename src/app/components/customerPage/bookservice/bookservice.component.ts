@@ -39,4 +39,9 @@ export class BookserviceComponent {
       this.filteredServices = this.allServices.filter(service => service.category === selectedCategory);
     }
   }
+
+
+  onBook(data:ServiceResponse){
+    console.log(data);
+  }
 }
