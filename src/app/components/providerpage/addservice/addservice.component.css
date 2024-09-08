@@ -96,3 +96,27 @@ button:hover {
     text-align: center;
     color:white;
 }
+
+
+/* ------carousel---------- */
+
+#carouselExample{
+
+    position: absolute;
+    top: 220px;
+    left: 55%;
+    width: 600px;
+    border-radius: 10px;
+
+}
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .carousel-indicators li {
+    background-color: #333;
+  }
+  
