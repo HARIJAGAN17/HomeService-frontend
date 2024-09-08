@@ -1,30 +1,24 @@
 <div class="left">
   <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="height:100%;width: 100%;">
-    <a [routerLink]="['/provider']" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a [routerLink]="['/customer']" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <i class="fa-solid fa-bars" style="margin-left: 17px;margin-top: 2px;"></i>
       <span class="fs-4" style="margin-left: 5px;">Menu</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
-        
-        <a [routerLink]="['/provider']" class="nav-link text-white" style="transition: background-color 0.3s;">
-          <i class="fa-solid fa-border-all" style="margin-left: 3px;margin-right: 6px;"></i> All services
+        <a [routerLink]="['/customer']" class="nav-link text-white" style="transition: background-color 0.3s;">
+          <i class="fa-solid fa-border-all" style="margin-left: 3px;margin-right: 6px;"></i>Services
         </a>
       </li>
       <li>
-        <a [routerLink]="['/provider/myservice']" class="nav-link text-white" style="transition: background-color 0.3s;">
-          <i class="fa-regular fa-user" style="margin-left: 3px;margin-right: 6px;"></i> My Services
-        </a>
-      </li>
-      <li>
-        <a href="/provider/addservice" class="nav-link text-white" style="transition: background-color 0.3s;">
-          <i class="fa-solid fa-plus" style="margin-left: 3px;margin-right: 6px;"></i> Add Service
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/my-services']" class="nav-link text-white" style="transition: background-color 0.3s;">
+        <a [routerLink]="['/customer']" class="nav-link text-white" style="transition: background-color 0.3s;">
           <i class="fa-solid fa-book" style="margin-left: 3px;margin-right: 6px;"></i> Booked service
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/customer']" class="nav-link text-white" style="transition: background-color 0.3s;">
+          <i class="fa-solid fa-book" style="margin-left: 3px;margin-right: 6px;"></i> Booking History
         </a>
       </li>
     </ul>
