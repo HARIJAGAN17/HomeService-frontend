@@ -22,5 +22,8 @@ export class ProviderCrudService {
     return this.http.delete<any>(`${this.baseUrl}/${id}`)
   }
   
+  updateService(id:number,data:any):Observable<any>{
+    return this.http.put<any>(`${this.baseUrl}/${id}`,data);
+  }
   
 }
