@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 500px; /* Adjusted for longer form */
+    max-width: 600px; /* Adjusted for longer form */
 }
 
 .card {
@@ -42,7 +42,8 @@ form {
 input, textarea {
     padding: 10px;
     border: none;
-    border-bottom: 2px solid #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
     font-size: 16px;
     background: none;
     width: 100%;
@@ -63,8 +64,9 @@ button {
     border: none;
     border-radius: 5px;
     background-color: #ffcc00;
-    color: #fff;
-    font-size: 16px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
@@ -80,4 +82,17 @@ button:hover {
         max-width: 100%;
         padding: 20px;
     }
+}
+
+.footer-company{
+    position: absolute;
+    top: 870px;
+    left: 35%;
+    border-bottom:2px solid #ff9900;
+    width: 500px;
+}
+
+.footer-company p{
+    text-align: center;
+    color:white;
 }

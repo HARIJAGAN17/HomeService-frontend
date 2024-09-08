@@ -10,7 +10,7 @@
   .right {
     position: relative;
     margin-left: 20%; 
-    height: 100vh; 
+    min-height: 100vh; /* Ensures that the right container is at least as tall as the viewport */
     width: 80%;
     overflow: auto; 
     padding: 20px;
@@ -27,7 +27,7 @@
     background-image: url('../../../../assets/images/content-bg.jpg');
     background-size:cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
     filter: blur(8px) brightness(0.8);
     z-index: 0; 
 }

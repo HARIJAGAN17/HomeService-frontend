@@ -19,7 +19,7 @@
           <p class="card-text" style="min-height: 120px; max-height: 120px; overflow: auto;">
             <strong>Category:</strong> {{item.category}} <br>
             <strong>Service:</strong> {{item.serviceName}} <br>
-            <strong>Price:</strong> ${{item.price}} <br>
+            <strong>Price:</strong> ₹{{item.price}} <br>
             <strong>Description:</strong> {{item.description}}<br>
             <strong>location:</strong> {{item.location}}
           </p>
@@ -82,7 +82,7 @@
       
       
 
-      <button class="btn btn-primary btn-block" style="margin-top:15px;" (click)="togglePopUp()" (click)="onUpdateSubmit()">Submit</button>
+      <button class="btn btn-primary btn-block" style="margin-top:15px;" (click)="onUpdateSubmit()">Submit</button>
     </form>
   </div>
 </div>

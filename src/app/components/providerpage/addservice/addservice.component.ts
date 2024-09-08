@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
 import { sendService } from '../../../model/sendService';
@@ -15,12 +15,12 @@ export class AddserviceComponent {
 
   constructor(private fb:FormBuilder,private providerService:ProviderCrudService){
     this.addserviceForm = this.fb.group({
-      serviceName:[''],
-      category:[''],
-      description:[''],
-      price:[''],
-      experience:[''],
-      location:[''],
+      serviceName:['',Validators.required],
+      category:['',Validators.required],
+      description:['',Validators.required],
+      price:['',Validators.required],
+      experience:['',Validators.required],
+      location:['',Validators.required],
     });
   }
 
@@ -37,23 +37,33 @@ export class AddserviceComponent {
       location: this.getTrimmedAndCapitalizedValue('location')
     };
   
-    this.providerService.addService(this.formData).subscribe({
-      next:(responseData:any)=>{
-        console.log(responseData);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your service is added",
-          showConfirmButton: false,
-          timer: 1500
-        });
-      },
-      error:(error)=>{
-        console.log(error);
-      },complete:()=>{
-        console.log("Completed successfully");
-      }
-    })
+    if(this.addserviceForm.valid){
+      this.providerService.addService(this.formData).subscribe({
+        next:(responseData:any)=>{
+          console.log(responseData);
+          this.addserviceForm.reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your service is added",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        },
+        error:(error)=>{
+          console.log(error);
+        },complete:()=>{
+          console.log("Completed successfully");
+        }
+      })
+    }
+    else{
+      Swal.fire({
+        title: "Invalid data",
+        text: "Every field is required cannot let empty!",
+        icon: "warning"
+      });
+    }
   }
   
   getTrimmedAndCapitalizedValue(controlName: string): string {

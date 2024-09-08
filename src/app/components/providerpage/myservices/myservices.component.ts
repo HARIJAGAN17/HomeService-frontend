@@ -3,7 +3,7 @@ import { ServiceResponse } from '../../../model/serviceget';
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { sendService } from '../../../model/sendService';
 @Component({
   selector: 'app-myservices',
@@ -20,13 +20,13 @@ export class MyservicesComponent {
   constructor(private providerService: ProviderCrudService,private loginService:LoginserviceService,private fb:FormBuilder) {
 
     this.updateForm = this.fb.group({
-      providerName:[{ value: '', disabled: true },],
-      experience:[''],
-      category:[''],
-      serviceName:[''],
-      price:[''],
-      location:[''],
-      description:[''],
+      providerName:[{ value: '', disabled: true },Validators.required],
+      experience:['',Validators.required],
+      category:['',Validators.required],
+      serviceName:['',Validators.required],
+      price:['',Validators.required],
+      location:['',Validators.required],
+      description:['',Validators.required],
     });
   }
 
@@ -137,32 +137,43 @@ export class MyservicesComponent {
    this.updateData.description=this.updateForm.get('description')?.value;
    this.updateData.location=this.updateForm.get('location')?.value;
 
-   Swal.fire({
-    title: "Do you want to save the changes?",
-    showDenyButton: true,
-    confirmButtonText: "Save",
-    denyButtonText: `Don't save`
-  }).then((result) => {
-    
-    if (result.isConfirmed) {
-
-      this.providerService.updateService(serviceId,this.updateData).subscribe({
-        next:(responseData:any)=>{
-          this.getServices();
-          console.log(responseData);
-        },
-        error:(error)=>{
-          console.log(error);
-        },
-        complete:()=>{
-          console.log("completed Update")
-        }
-       })
-      Swal.fire("Saved!", "", "success");
-    } else if (result.isDenied) {
-      Swal.fire("Changes are not saved", "", "info");
-    }
-  });
+   if(this.updateForm.valid){
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      
+      if (result.isConfirmed) {
+  
+        this.providerService.updateService(serviceId,this.updateData).subscribe({
+          next:(responseData:any)=>{
+            this.getServices();
+            console.log(responseData);
+            this.updateForm.reset();
+            this.showPopUp=!this.showPopUp;
+          },
+          error:(error)=>{
+            console.log(error);
+          },
+          complete:()=>{
+            console.log("completed Update")
+          }
+         })
+        Swal.fire("Saved!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+   }
+   else{
+    Swal.fire({
+      title: "Invalid data",
+      text: "Every field is required cannot let empty!",
+      icon: "warning"
+    });
+   }
   }
 
 }
