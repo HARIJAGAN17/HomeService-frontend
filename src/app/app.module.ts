@@ -20,6 +20,7 @@ import { CustomerContentComponent } from './components/customerPage/customer-con
 import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
+import { AddserviceComponent } from './components/providerpage/addservice/addservice.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MyservicesComponent } from './components/providerpage/myservices/myserv
     CustomerContentComponent,
     ForbiddenpageComponent,
     PagenotfoundComponent,
-    MyservicesComponent
+    MyservicesComponent,
+    AddserviceComponent
   ],
   imports: [
     BrowserModule,
