@@ -1,1 +1,40 @@
-<p>addservice works!</p>
+<div class="container">
+    <div class="card register">
+      <h2>Service Registration</h2>
+      <form [formGroup]='addserviceForm'>
+        <!-- Service Name -->
+        <div class="form-group">
+          <input type="text" formControlName="serviceName" placeholder="Service Name" required>
+        </div>
+        
+        <!-- Category -->
+        <div class="form-group">
+          <input type="text" formControlName="category"  placeholder="Category" required>
+        </div>
+        
+        <!-- Description -->
+        <div class="form-group">
+          <textarea formControlName="description" placeholder="Description" rows="4" required></textarea>
+        </div>
+        
+        <!-- Price -->
+        <div class="form-group">
+          <input type="number" formControlName="price" placeholder="Price" required>
+        </div>
+        
+        <!-- Experience -->
+        <div class="form-group">
+          <input type="number" formControlName="experience" placeholder="Experience (in years)" required>
+        </div>
+        
+        <!-- Location -->
+        <div class="form-group">
+          <input type="text" formControlName="location" placeholder="Location" required>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" (click)="onAddService()">Register Service</button>
+      </form>
+    </div>
+  </div>
+  
