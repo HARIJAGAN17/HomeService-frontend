@@ -16,11 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { TokeninterceptorService } from './services/interceptor/tokeninterceptor.service';
 import { CustomerLayoutComponent } from './components/customerPage/customer-layout/customer-layout.component';
-import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
 import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
 import { AddserviceComponent } from './components/providerpage/addservice/addservice.component';
+import { BookserviceComponent } from './components/customerPage/bookservice/bookservice.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +34,11 @@ import { AddserviceComponent } from './components/providerpage/addservice/addser
     ProviderLayoutComponent,
     ProvidercontentComponent,
     CustomerLayoutComponent,
-    CustomerContentComponent,
     ForbiddenpageComponent,
     PagenotfoundComponent,
     MyservicesComponent,
-    AddserviceComponent
+    AddserviceComponent,
+    BookserviceComponent
   ],
   imports: [
     BrowserModule,

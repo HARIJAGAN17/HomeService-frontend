@@ -1,6 +1,6 @@
 <div class="left">
   <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="height:100%;width: 100%;">
-    <a [routerLink]="['/my-services']" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a [routerLink]="['/provider']" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <i class="fa-solid fa-bars" style="margin-left: 17px;margin-top: 2px;"></i>
       <span class="fs-4" style="margin-left: 5px;">Menu</span>
     </a>
@@ -8,17 +8,17 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
         
-        <a [routerLink]="['/my-services']" class="nav-link text-white" style="transition: background-color 0.3s;">
+        <a [routerLink]="['/provider']" class="nav-link text-white" style="transition: background-color 0.3s;">
           <i class="fa-solid fa-border-all" style="margin-left: 3px;margin-right: 6px;"></i> All services
         </a>
       </li>
       <li>
-        <a [routerLink]="['/my-services']" class="nav-link text-white" style="transition: background-color 0.3s;">
+        <a [routerLink]="['/provider/myservice']" class="nav-link text-white" style="transition: background-color 0.3s;">
           <i class="fa-regular fa-user" style="margin-left: 3px;margin-right: 6px;"></i> My Services
         </a>
       </li>
       <li>
-        <a [routerLink]="['/my-services']" class="nav-link text-white" style="transition: background-color 0.3s;">
+        <a href="/provider/addservice" class="nav-link text-white" style="transition: background-color 0.3s;">
           <i class="fa-solid fa-plus" style="margin-left: 3px;margin-right: 6px;"></i> Add Service
         </a>
       </li>
@@ -35,7 +35,7 @@
         <strong>Profile</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-        <li><a class="dropdown-item" href="#">User details</a></li>
+        <li><a class="dropdown-item" >{{userLoggedIn}}</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" (click)="callSignOut()" id="signoutButton">Sign out</a></li>
       </ul>
@@ -44,5 +44,7 @@
 </div>
 
 <div class="right">
-  <router-outlet></router-outlet>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

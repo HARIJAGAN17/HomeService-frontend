@@ -9,13 +9,13 @@ import { ProviderLayoutComponent } from './components/providerpage/provider-layo
 import { ProvidercontentComponent } from './components/providerpage/providercontent/providercontent.component';
 import { AuthGuard } from './shared/auth.guard';
 import { CustomerLayoutComponent } from './components/customerPage/customer-layout/customer-layout.component';
-import { CustomerContentComponent } from './components/customerPage/customer-content/customer-content.component';
 import { ProviderGuard } from './shared/provider.guard';
 import { CustomerGuard } from './shared/customer.guard';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage.component';
 import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
 import { AddserviceComponent } from './components/providerpage/addservice/addservice.component';
+import { BookserviceComponent } from './components/customerPage/bookservice/bookservice.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -32,8 +32,9 @@ const routes: Routes = [
     {path:"addservice",component:AddserviceComponent}
   ]},
   {path:"customer",component:CustomerLayoutComponent,canActivate:[AuthGuard,CustomerGuard],children:[
-    {path:"",redirectTo:"customerBooking",pathMatch:'full'},
-    {path:"customerBooking",component:CustomerContentComponent}
+    {path:"",redirectTo:"bookservice",pathMatch:"full"},
+    {path:"bookservice",component:BookserviceComponent}
+
   ]},
   {path:"noauth",component:ForbiddenpageComponent},
   {path:"**",component:PagenotfoundComponent},
