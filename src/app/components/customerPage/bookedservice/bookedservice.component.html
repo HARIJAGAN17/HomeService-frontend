@@ -1,1 +1,41 @@
-<h1>My bookings</h1>
+<!-- Add Bootstrap CSS for styling -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+  <h1 class="mb-4">My Bookings</h1>
+
+  <table class="table table-striped table-bordered table-sm">
+    <thead class="thead-light bg-warning">
+      <tr>
+        <th class="date-column">Date</th>
+        <th class="status-column">Status</th>
+        <th class="customer-name-column">Customer Name</th>
+        <th class="service-name-column">Service Name</th>
+        <th class="category-column">Category</th>
+        <th class="description-column">Description</th>
+        <th class="price-column">Price</th>
+        <th class="experience-column">Experience</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of currentCustomerData">
+        <td class="date-column">{{ data.date }}</td>
+        <td class="status-column">
+          <span [ngClass]="{
+            'text-danger': data.status === 'Cancelled',
+            'text-success': data.status === 'Confirmed',
+            'text-warning': data.status === 'Pending'
+          }">
+            {{ data.status }}
+          </span>
+        </td>
+        <td class="customer-name-column">{{ data.customerName }}</td>
+        <td class="service-name-column">{{ data.serviceName }}</td>
+        <td class="category-column">{{ data.category }}</td>
+        <td class="description-column">{{ data.description }}</td>
+        <td class="price-column">${{ data.price.toFixed(2) }}</td>
+        <td class="experience-column">{{ data.experience }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

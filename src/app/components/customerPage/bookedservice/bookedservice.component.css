@@ -12,3 +12,39 @@ h1 {
     border-radius: 8px; 
     transform: translateY(-4px);
 }
+
+
+.date-column {
+    width: 150px; 
+  }
+  
+  .status-column {
+    width: 120px; 
+  }
+  
+  .customer-name-column {
+    width: 170px; 
+    word-wrap: break-word; 
+  }
+  
+  .service-name-column {
+    width: 150px; 
+  }
+  
+  .category-column {
+    width: 120px; 
+  }
+  
+  .description-column {
+    width: 250px; 
+    word-wrap: break-word;
+  }
+  
+  .price-column {
+    width: 100px; 
+  }
+  
+  .experience-column {
+    width: 120px; 
+  }
+  
