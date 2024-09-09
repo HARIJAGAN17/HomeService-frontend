@@ -1,8 +1,8 @@
 <div class="container mt-4">
   <div>
     <h1>My Services</h1>
-    <div class="filterDiv mb-4" style="width: 200px;">
-      <label id="filterLabel" for="categoryFilter" class="form-label">Filter by Category:</label>
+    <div class="filterDiv mb-4">
+      <label for="categoryFilter" class="form-label">Filter by Category:</label>
       <select id="categoryFilter" class="form-select" (change)="onCategoryChange($event)">
         <option value="">All Categories</option>
         <option *ngFor="let category of categories" [value]="category">{{category}}</option>
@@ -11,30 +11,31 @@
   </div>
 
   <div class="row">
-    <div class="col-md-5" *ngFor="let item of filteredServices">
-      <div class="card mb-4" style="min-height: 200px;">
-        <div class="card-body" style="overflow: hidden;">
+    <div class="col-md-4 mb-4" *ngFor="let item of filteredServices">
+      <div class="card">
+        <div class="card-body">
           <h5 class="card-title">Provider: {{item.providerName}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Experience: {{item.experience}} years</h6>
-          <p class="card-text" style="min-height: 120px; max-height: 120px; overflow: auto;">
+          <p class="card-text">
             <strong>Category:</strong> {{item.category}} <br>
             <strong>Service:</strong> {{item.serviceName}} <br>
             <strong>Price:</strong> ₹{{item.price}} <br>
-            <strong>Description:</strong> {{item.description}}<br>
-            <strong>location:</strong> {{item.location}}
+            <strong>Description:</strong> {{item.description}} <br>
+            <strong>Location:</strong> {{item.location}}
           </p>
         </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <small id="footerText" class="text-muted">Contact: {{item.providerEmail}}</small>
-          <div>
-            <button class="btn btn-warning btn-sm me-2" (click)="togglePopUp()" (click)="sendUpdate(item)">Update</button>
-            <button (click)="onDelete(item.serviceId)" class="btn btn-danger btn-sm">Delete</button>
+        <div class="card-footer">
+          <small class="text-muted">Contact: {{item.providerEmail}}</small>
+          <div class="card-footer-actions">
+            <button class="btn btn-warning btn-sm" (click)="togglePopUp(); sendUpdate(item)">Update</button>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(item.serviceId)">Delete</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- --------------------------------popupform------------------------------------------------------------ -->
 
