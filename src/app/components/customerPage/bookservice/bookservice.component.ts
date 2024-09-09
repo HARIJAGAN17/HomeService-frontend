@@ -61,6 +61,7 @@ export class BookserviceComponent {
    this.currentBookingProviderId=currentData.providerId;
    this.currentBookingServiceId=currentData.serviceId;
 
+   this.selectedDate='';
     this.showPopup = !this.showPopup;
   }
 

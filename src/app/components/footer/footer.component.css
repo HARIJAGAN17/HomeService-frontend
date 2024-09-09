@@ -1,0 +1,41 @@
+/* Ensure the footer stretches across the entire width */
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+.footer {
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer ul li {
+  margin: 0 15px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: lightgray;
+}
+
+.footer p {
+  margin: 0;
+  color: white;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Light white border */
+}
