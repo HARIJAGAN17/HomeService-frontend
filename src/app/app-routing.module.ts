@@ -16,6 +16,7 @@ import { ForbiddenpageComponent } from './components/forbiddenpage/forbiddenpage
 import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
 import { AddserviceComponent } from './components/providerpage/addservice/addservice.component';
 import { BookserviceComponent } from './components/customerPage/bookservice/bookservice.component';
+import { BookedserviceComponent } from './components/customerPage/bookedservice/bookedservice.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -33,7 +34,8 @@ const routes: Routes = [
   ]},
   {path:"customer",component:CustomerLayoutComponent,canActivate:[AuthGuard,CustomerGuard],children:[
     {path:"",redirectTo:"bookservice",pathMatch:"full"},
-    {path:"bookservice",component:BookserviceComponent}
+    {path:"bookservice",component:BookserviceComponent},
+    {path:"bookedService",component:BookedserviceComponent},
 
   ]},
   {path:"noauth",component:ForbiddenpageComponent},

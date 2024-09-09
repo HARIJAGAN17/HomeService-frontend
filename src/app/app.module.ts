@@ -21,6 +21,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { MyservicesComponent } from './components/providerpage/myservices/myservices.component';
 import { AddserviceComponent } from './components/providerpage/addservice/addservice.component';
 import { BookserviceComponent } from './components/customerPage/bookservice/bookservice.component';
+import { BookedserviceComponent } from './components/customerPage/bookedservice/bookedservice.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { BookserviceComponent } from './components/customerPage/bookservice/book
     PagenotfoundComponent,
     MyservicesComponent,
     AddserviceComponent,
-    BookserviceComponent
+    BookserviceComponent,
+    BookedserviceComponent,
   ],
   imports: [
     BrowserModule,
