@@ -1,40 +1,83 @@
 .container h1 {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(73, 69, 69);
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    border-bottom: 3px solid #1d3557a4;
-    padding-bottom: 10px;
-    background-color: rgba(245, 245, 245, 0.67);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-    border-radius: 8px; 
-    transform: translateY(-4px);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(73, 69, 69);
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 3px solid #1d3557a4;
+  padding-bottom: 10px;
+  background-color: rgba(245, 245, 245, 0.67);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
+  transform: translateY(-4px);
 }
 
 .card {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card-body {
-    flex-grow: 1;
-    overflow-y: auto;
-    max-height: 200px;
-  }
-  
-  .card-header,
-  .card-footer {
-    flex-shrink: 0;
-  }
-  
-  .card-text {
-    word-wrap: break-word;
-  }
-  
-  h6, p {
-    margin-bottom: 0.5rem;
-  }
-  
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.card-header,
+.card-footer {
+  flex-shrink: 0;
+}
+
+.card-text {
+  word-wrap: break-word;
+}
+
+h6, p {
+  margin-bottom: 0.5rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
+
+.card-actions .btn {
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}

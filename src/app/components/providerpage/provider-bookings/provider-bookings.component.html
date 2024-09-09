@@ -2,10 +2,10 @@
   <h1 class="mb-4">My Orders</h1>
 
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let data of currentProviderData;let i=index">
+    <div class="col-md-4 mb-4" *ngFor="let data of currentProviderData; let i = index">
       <div class="card border-warning">
         <div class="card-header bg-warning text-white">
-          <h5 class="card-title">Order no: {{ i+1 }}</h5>
+          <h5 class="card-title">Order no: {{ i + 1 }}</h5>
         </div>
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Date: {{ data.date }}</h6>
@@ -33,6 +33,15 @@
           <strong>Name:</strong> {{ data.providerName }}<br>
           <strong>Email:</strong> {{ data.providerEmail }}<br>
           <strong>Location:</strong> {{ data.location }}
+        </div>
+        <div class="card-actions p-3">
+          <ng-container *ngIf="data.status === 'Pending'; else completeButton">
+            <button class="btn btn-success btn-sm">Accept</button>
+            <button class="btn btn-danger btn-sm">Decline</button>
+          </ng-container>
+          <ng-template #completeButton>
+            <button class="btn btn-primary btn-sm">Complete</button>
+          </ng-template>
         </div>
       </div>
     </div>
