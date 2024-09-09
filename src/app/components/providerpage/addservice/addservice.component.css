@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 600px; /* Adjusted for longer form */
+    max-width: 450px; /* Adjusted for longer form */
 }
 
 .card {
@@ -105,7 +105,7 @@ button:hover {
     position: absolute;
     top: 220px;
     left: 55%;
-    width: 600px;
+    width: 400px;
     border-radius: 10px;
 
 }
