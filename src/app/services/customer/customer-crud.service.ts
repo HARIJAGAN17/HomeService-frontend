@@ -21,7 +21,7 @@ export class CustomerCrudService {
     return this.http.post<any>(this.baseUrl,bookingData);
    }
 
-   getBookings():Observable<BookingResponse>{
-    return this.http.get<BookingResponse>(this.baseUrl);
+   getBookings():Observable<BookingResponse[]>{
+    return this.http.get<BookingResponse[]>(this.baseUrl);
    }
 }
