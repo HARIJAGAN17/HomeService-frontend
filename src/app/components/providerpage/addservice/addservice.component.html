@@ -1,64 +1,57 @@
 <div class="container">
-    <div class="card register">
-      <h2>Service Registration</h2>
-      <form [formGroup]='addserviceForm'>
-
-        <div class="form-group">
-          <input type="text" formControlName="serviceName" placeholder="Service Name" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="text" formControlName="category"  placeholder="Category" required>
-        </div>
-        
-        <div class="form-group">
-          <textarea formControlName="description" placeholder="Description" rows="4" required></textarea>
-        </div>
-        
-        <div class="form-group">
-          <input type="number" formControlName="price" placeholder="Price" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="number" formControlName="experience" placeholder="Experience (in years)" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="text" formControlName="location" placeholder="Location" required>
-        </div>
-        
-        <button type="submit" (click)="onAddService()">Register Service</button>
-      </form>
-    </div>
-  </div>
-  
-  <div class="footer-company">
-    <p>© Copyright 2024 HomEase</p>
-  </div>
-
-
-  <!-- ------------------------carousel--------------------------------- -->
-  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-  
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://media.istockphoto.com/id/1457385092/photo/an-asian-young-technician-service-man-wearing-blue-uniform-checking-cleaning-air-conditioner.jpg?s=612x612&w=0&k=20&c=Tqu5jMzD1TKFO1Fvow6d0JMDsEGU8T3kToP706bQFQI=" alt="">
-      </div>
-      <div class="carousel-item">
-        <img src="https://media.istockphoto.com/id/1226023669/photo/its-a-pleasure-doing-business-with-you.jpg?s=612x612&w=0&k=20&c=JPlOlUHjm-qMT8uym_df7vRlEpy8oHKdkNQ43ofzCT4=" class="d-block w-100" alt="Image 2">
-      </div>
-      <div class="carousel-item">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/397218615/GD/FZ/EG/115586853/home-deep-cleaning-service.jpg" class="d-block w-100" alt="Image 3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card register">
+        <h2>Service Registration</h2>
+        <form [formGroup]='addserviceForm'>
+          <div class="form-group">
+            <input type="text" formControlName="serviceName" placeholder="Service Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="category" placeholder="Category" required>
+          </div>
+          <div class="form-group">
+            <textarea formControlName="description" placeholder="Description" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <input type="number" formControlName="price" placeholder="Price" required>
+          </div>
+          <div class="form-group">
+            <input type="number" formControlName="experience" placeholder="Experience (in years)" required>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="location" placeholder="Location" required>
+          </div>
+          <button type="submit" (click)="onAddService()">Register Service</button>
+        </form>
       </div>
     </div>
-  
-    <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
+    <div class="col-md-6 carousel-container">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://media.istockphoto.com/id/1457385092/photo/an-asian-young-technician-service-man-wearing-blue-uniform-checking-cleaning-air-conditioner.jpg?s=612x612&w=0&k=20&c=Tqu5jMzD1TKFO1Fvow6d0JMDsEGU8T3kToP706bQFQI=" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="https://media.istockphoto.com/id/1226023669/photo/its-a-pleasure-doing-business-with-you.jpg?s=612x612&w=0&k=20&c=JPlOlUHjm-qMT8uym_df7vRlEpy8oHKdkNQ43ofzCT4=" class="d-block w-100" alt="Image 2">
+          </div>
+          <div class="carousel-item">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/397218615/GD/FZ/EG/115586853/home-deep-cleaning-service.jpg" class="d-block w-100" alt="Image 3">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+    </div>
   </div>
-  
+</div>
+
+<div class="footer-company">
+  <p>© Copyright 2024 HomEase</p>
+</div>
