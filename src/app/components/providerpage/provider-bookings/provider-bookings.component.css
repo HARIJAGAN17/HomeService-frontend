@@ -12,3 +12,29 @@
     border-radius: 8px; 
     transform: translateY(-4px);
 }
+
+.card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 200px;
+  }
+  
+  .card-header,
+  .card-footer {
+    flex-shrink: 0;
+  }
+  
+  .card-text {
+    word-wrap: break-word;
+  }
+  
+  h6, p {
+    margin-bottom: 0.5rem;
+  }
+  
