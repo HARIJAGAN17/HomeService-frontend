@@ -1,4 +1,6 @@
 .container {
+  max-width: 1200px; 
+  margin: 0 auto;
   padding: 10px;
 }
 
@@ -17,14 +19,16 @@
   transform: translateY(-4px);
 }
 
-.filterDiv {
-  width: 200px;
-}
-
+/* Card styling */
 .card {
-  transition: transform 0.3s ease-in-out;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
 }
 
 .card:hover {
@@ -32,32 +36,67 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-body {
-  padding: 1rem;
+.card:hover .card-footer {
+  color: white;
 }
 
+
+.card-body.card-content {
+  flex: 1; 
+  max-height: 200px; 
+  overflow-y: auto;
+  min-height: 150px; 
+}
+
+.card-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
 .card-footer {
-  padding: 0.75rem 1.25rem;
   background-color: #f8f9fa;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid #ddd;
+  padding: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; 
+  align-items: center; 
+  height: 60px; 
 }
 
 .card-footer-actions {
   display: flex;
-  gap: 0.5rem;
+  gap: 10px; 
 }
 
-.card-footer-actions .btn {
+.btn {
   margin: 0;
+  border-radius: 4px;
+  font-size: 0.875rem;
 }
 
-.card-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.filterDiv {
+  width: 200px;
 }
 
 
