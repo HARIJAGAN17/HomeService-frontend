@@ -44,4 +44,21 @@ export class BookserviceComponent {
   onBook(data:ServiceResponse){
     console.log(data);
   }
+
+
+  // --------------------------popup----------------------------
+  showPopup: boolean = false;
+  selectedDate: string = '';
+
+  togglePopup(){
+    this.showPopup = !this.showPopup;
+    this.selectedDate='';
+  }
+
+  onPopSubmit() {
+    
+   
+    console.log(typeof this.selectedDate);
+    this.togglePopup();
+  }
 }
