@@ -8,6 +8,7 @@ import { LoginserviceService } from '../../../services/loginservices/loginservic
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
 import { updateBookingStatus } from '../../../model/updateStatus';
 import emailjs from '@emailjs/browser';
+import { CompletedordersService } from '../../../services/completedOrder/completedorders.service';
 
 @Component({
   selector: 'app-provider-bookings',
@@ -24,7 +25,8 @@ export class ProviderBookingsComponent implements OnInit {
   constructor(
     private customerService: CustomerCrudService,
     private providerService: ProviderCrudService,
-    private loginService: LoginserviceService
+    private loginService: LoginserviceService,
+    private completedOrderservice:CompletedordersService
   ) {}
 
   ngOnInit() {
@@ -131,11 +133,23 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
     this.BookingStatusUpdateData.status='Cancelled';
     this.updateBookingStatus(bookingId,this.BookingStatusUpdateData);
 
+    data.status="Cancelled",
+    this.completedOrderservice.AddCompletedServices(data).subscribe({
+      next:(responseData:any)=>{
+        console.log(responseData);
+      },
+      error:(error)=>{
+        console.log(error);
+      },complete:()=>{
+        console.log("complete added into completedOrder")
+      }
+    })
 
     this.customerService.DeleteBooking(bookingId).subscribe({
       next:(responseData:any)=>{
         console.log("Booking decline:"+responseData);
         this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
+        this.FetchData();
         //this.StatusMail("Declined",this.currentBookingData);
       },
       error:(error)=>{
@@ -154,12 +168,23 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
     //this.StatusMail("Completed",this.currentBookingData);
     
     //first add to completed services
-
+    data.status="Completed",
+    this.completedOrderservice.AddCompletedServices(data).subscribe({
+      next:(responseData:any)=>{
+        console.log(responseData);
+      },
+      error:(error)=>{
+        console.log(error);
+      },complete:()=>{
+        console.log("complete added into completedOrder")
+      }
+    })
 
     //second remove from the bookings
     this.customerService.DeleteBooking(data.bookingId).subscribe({
       next:(responseData:any)=>{
         console.log(responseData);
+        this.FetchData();
       },
       error:(error)=>{
         console.log(error);
