@@ -128,12 +128,13 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
   OnDeleteBooking(data:CustomerBookingServiceData){
 
     var bookingId = data.bookingId;
+    this.BookingStatusUpdateData.status='Cancelled';
+    this.updateBookingStatus(bookingId,this.BookingStatusUpdateData);
+
+
     this.customerService.DeleteBooking(bookingId).subscribe({
       next:(responseData:any)=>{
         console.log("Booking decline:"+responseData);
-        this.BookingStatusUpdateData.status='Cancelled';
-        this.updateBookingStatus(bookingId,this.BookingStatusUpdateData);
-
         this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
         //this.StatusMail("Declined",this.currentBookingData);
       },
@@ -145,6 +146,28 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
       }
       
     });
+  }
+
+  completeOrder(data:CustomerBookingServiceData){
+    this.BookingStatusUpdateData.status = 'Completed';
+    this.updateBookingStatus(data.bookingId, this.BookingStatusUpdateData);
+    //this.StatusMail("Completed",this.currentBookingData);
+    
+    //first add to completed services
+
+
+    //second remove from the bookings
+    this.customerService.DeleteBooking(data.bookingId).subscribe({
+      next:(responseData:any)=>{
+        console.log(responseData);
+      },
+      error:(error)=>{
+        console.log(error);
+      },complete:()=>{
+        console.log("complete status and delted the data from booking")
+      }
+    })
+    
   }
 
   updateBookingStatus(id:number,data:updateBookingStatus){
