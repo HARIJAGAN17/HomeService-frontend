@@ -6,6 +6,7 @@ import { ServiceResponse } from '../../../model/serviceget';
 import { CustomerCrudService } from '../../../services/customer/customer-crud.service';
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
+import { updateBookingStatus } from '../../../model/updateStatus';
 
 @Component({
   selector: 'app-provider-bookings',
@@ -28,6 +29,10 @@ export class ProviderBookingsComponent implements OnInit {
   ngOnInit() {
     
     // Fetch both bookings and services in parallel
+    this.getBookingData();
+  }
+
+  getBookingData(){
     forkJoin({
       bookings: this.customerService.getBookings(),
       services: this.providerService.getServices()
@@ -42,6 +47,7 @@ export class ProviderBookingsComponent implements OnInit {
       }
     });
   }
+
 
   FetchData() {
     const payload = this.loginService.haveAccess();
@@ -79,4 +85,48 @@ export class ProviderBookingsComponent implements OnInit {
     });
     console.log('Current Customer Data:', this.currentProviderData);
   }
+
+  //status part
+
+  BookingStatusUpdateData:updateBookingStatus={status:''};
+
+  OnUpdateStatus(data:CustomerBookingServiceData){
+      this.BookingStatusUpdateData.status='Confirmed';
+      this.updateBookingStatus(data.bookingId,this.BookingStatusUpdateData);
+  }
+
+  OnDeleteBooking(data:CustomerBookingServiceData){
+
+    var bookingId = data.bookingId;
+    this.customerService.DeleteBooking(bookingId).subscribe({
+      next:(responseData:any)=>{
+        console.log("Booking decline:"+responseData);
+        this.getBookingData();
+      },
+      error:(error)=>{
+        console.log(error);
+      },
+      complete:()=>{
+        console.log("Completed delete");
+      }
+      
+    });
+  }
+
+  updateBookingStatus(id:number,data:updateBookingStatus){
+    this.customerService.updateBooking(id,data).subscribe({
+      next:(responseData:any)=>{
+        console.log("Booking Update:"+responseData);
+        this.getBookingData();
+      },
+      error:(error)=>{
+        console.log(error);
+      },
+      complete:()=>{
+        console.log("Completed delete");
+      }
+    })
+  }
+
+
 }

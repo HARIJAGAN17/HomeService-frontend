@@ -36,8 +36,8 @@
         </div>
         <div class="card-actions p-3">
           <ng-container *ngIf="data.status === 'Pending'; else completeButton">
-            <button class="btn btn-success btn-sm">Accept</button>
-            <button class="btn btn-danger btn-sm">Decline</button>
+            <button class="btn btn-success btn-sm" (click)="OnUpdateStatus(data)">Accept</button>
+            <button class="btn btn-danger btn-sm" (click)="OnDeleteBooking(data)">Decline</button>
           </ng-container>
           <ng-template #completeButton>
             <button class="btn btn-primary btn-sm">Complete</button>

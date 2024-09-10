@@ -74,7 +74,8 @@ export class BookserviceComponent {
   bookingData:sendBooking={date:'',providerId:'',serviceId:0};
   onPopSubmit() {
     
-    const [year, month, day] = this.selectedDate.split('-');
+    if(this.selectedDate.length>0){
+      const [year, month, day] = this.selectedDate.split('-');
     const formattedDate = `${day}-${month}-${year}`;
 
     this.bookingData.date=formattedDate;
@@ -99,5 +100,13 @@ export class BookserviceComponent {
     });
 
     this.showPopup=!this.showPopup;
+    }
+    else{
+      Swal.fire({
+        title: "Date required",
+        text: "You forgot to select the date?",
+        icon: "question"
+      });
+    }
   }
 }
