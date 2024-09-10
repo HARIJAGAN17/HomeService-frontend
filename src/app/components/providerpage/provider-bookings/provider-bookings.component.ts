@@ -121,7 +121,7 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
   // Use type assertion if you are confident that a booking will always be found
   this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
 
-  this.StatusMail("Confirmed",this.currentBookingData);
+  //this.StatusMail("Confirmed",this.currentBookingData);
 }
 
 
@@ -135,7 +135,7 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
         this.updateBookingStatus(bookingId,this.BookingStatusUpdateData);
 
         this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
-        this.StatusMail("Declined",this.currentBookingData);
+        //this.StatusMail("Declined",this.currentBookingData);
       },
       error:(error)=>{
         console.log(error);

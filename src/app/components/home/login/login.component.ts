@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   loginform:FormGroup;
+  loading:boolean= false;
 
   constructor(private router: Router,private loginService:LoginserviceService,private fb:FormBuilder,private route:Router) {
         this.loginform = this.fb.group({
@@ -24,6 +25,9 @@ export class LoginComponent {
   loginData:Login = {userName:'',password:''};
   
   onSubmit():void {
+
+    this.loading=true;
+
     this.loginData.userName = this.loginform.get("username")?.value;
     this.loginData.password = this.loginform.get("password")?.value;
     this.loginService.getToken(this.loginData).subscribe({
@@ -38,6 +42,9 @@ export class LoginComponent {
         else if (role.toLowerCase() === 'customer'){
           this.route.navigate(['/customer'])
         }
+
+        this.loading=false;
+        this.loginform.reset();
         
       },
       error:(error)=>{

@@ -106,26 +106,26 @@ export class BookserviceComponent {
         //customer name from login service;
         var payload=this.loginservice.haveAccess();
         var customerName = payload.UserName;
-        emailjs.init("RU2fbINeyQ4ziAvLK");
-        emailjs.send("service_5wzy3w3","template_e0c2k6q",{
-          from_name: "HomeEase",
-          to_name: this.currentServicePopupData.providerName,
-          customer_name: customerName,
-          service_name: this.currentServicePopupData.serviceName,
-          price: this.currentServicePopupData.price,
-          description: this.currentServicePopupData.description,
-          location: this.currentServicePopupData.location,
-          booking_date: formattedDate,
-          to_email: this.currentServicePopupData.providerEmail,
+        // emailjs.init("RU2fbINeyQ4ziAvLK");
+        // emailjs.send("service_5wzy3w3","template_e0c2k6q",{
+        //   from_name: "HomeEase",
+        //   to_name: this.currentServicePopupData.providerName,
+        //   customer_name: customerName,
+        //   service_name: this.currentServicePopupData.serviceName,
+        //   price: this.currentServicePopupData.price,
+        //   description: this.currentServicePopupData.description,
+        //   location: this.currentServicePopupData.location,
+        //   booking_date: formattedDate,
+        //   to_email: this.currentServicePopupData.providerEmail,
         
-        }).then(
-          (response) => {
-            console.log('SUCCESS mail sent!', response.status, response.text);
-          },
-          (err) => {
-            console.log('FAILED...', err);
-          },
-        );
+        // }).then(
+        //   (response) => {
+        //     console.log('SUCCESS mail sent!', response.status, response.text);
+        //   },
+        //   (err) => {
+        //     console.log('FAILED...', err);
+        //   },
+        // );
 
 
 

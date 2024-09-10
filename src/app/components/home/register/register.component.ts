@@ -19,6 +19,8 @@ export class RegisterComponent {
 
   registerForm:FormGroup
 
+  loading:boolean=false;
+
   constructor(private registerServie:RegisteruserService,private fb:FormBuilder){
     
     this.registerForm = this.fb.group({
@@ -42,11 +44,15 @@ export class RegisterComponent {
     this.registerData.password=this.registerForm.get('password')?.value;
     this.registerData.userName = this.registerForm.get('username')?.value;
 
+    this.loading=true;
+
     if(this.registerForm.valid){
       if(this.registerForm.get('password')?.value==this.registerForm.get('confirmPassword')?.value){
         this.registerServie.RegisterUser(this.registerData,this.registerForm.get('role')?.value).subscribe({
           next:(responseData:response)=>{
             this.registerResponse=responseData;
+            this.loading=false;
+            this.registerForm.reset();
           },
           error:(error)=>{
             console.log(error);
