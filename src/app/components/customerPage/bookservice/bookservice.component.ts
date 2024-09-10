@@ -4,6 +4,8 @@ import { ProviderCrudService } from '../../../services/provider/provider-crud.se
 import { ServiceResponse } from '../../../model/serviceget';
 import { CustomerCrudService } from '../../../services/customer/customer-crud.service';
 import Swal from 'sweetalert2';
+import emailjs from '@emailjs/browser';
+import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
 
 @Component({
   selector: 'app-bookservice',
@@ -15,7 +17,7 @@ export class BookserviceComponent {
   filteredServices: ServiceResponse[] = []; 
   categories: string[] = []; 
 
-  constructor(private providerService: ProviderCrudService,private customerService:CustomerCrudService) {}
+  constructor(private providerService: ProviderCrudService,private customerService:CustomerCrudService,private loginservice:LoginserviceService) {}
 
   ngOnInit(): void {
     this.providerService.getServices().subscribe({
@@ -53,13 +55,26 @@ export class BookserviceComponent {
   showPopup: boolean = false;
 
   selectedDate: string = '';
-  currentBookingServiceId:number=0;
-  currentBookingProviderId:string='';
+  
+
+  //data for send email to provider
+  currentServicePopupData: ServiceResponse = {
+    serviceId: 0,        
+    serviceName: '',      
+    category: '',         
+    description: '',      
+    price: 0,            
+    experience: 0,       
+    providerName: '',     
+    providerId: '',       
+    providerEmail: '',
+    location: '',    
+};
+
 
   togglePopup(currentData:ServiceResponse){
-
-   this.currentBookingProviderId=currentData.providerId;
-   this.currentBookingServiceId=currentData.serviceId;
+   
+   this.currentServicePopupData=currentData;
 
    this.selectedDate='';
     this.showPopup = !this.showPopup;
@@ -79,12 +94,41 @@ export class BookserviceComponent {
     const formattedDate = `${day}-${month}-${year}`;
 
     this.bookingData.date=formattedDate;
-    this.bookingData.serviceId=this.currentBookingServiceId;
-    this.bookingData.providerId=this.currentBookingProviderId;
+    this.bookingData.serviceId=this.currentServicePopupData.serviceId;
+    this.bookingData.providerId=this.currentServicePopupData.providerId;
 
     this.customerService.AddBooking(this.bookingData).subscribe({
       next:(responseData:any)=>{
         console.log(responseData);
+
+        //sending email to provider
+
+        //customer name from login service;
+        var payload=this.loginservice.haveAccess();
+        var customerName = payload.UserName;
+        emailjs.init("RU2fbINeyQ4ziAvLK");
+        emailjs.send("service_5wzy3w3","template_e0c2k6q",{
+          from_name: "HomeEase",
+          to_name: this.currentServicePopupData.providerName,
+          customer_name: customerName,
+          service_name: this.currentServicePopupData.serviceName,
+          price: this.currentServicePopupData.price,
+          description: this.currentServicePopupData.description,
+          location: this.currentServicePopupData.location,
+          booking_date: formattedDate,
+          to_email: this.currentServicePopupData.providerEmail,
+        
+        }).then(
+          (response) => {
+            console.log('SUCCESS mail sent!', response.status, response.text);
+          },
+          (err) => {
+            console.log('FAILED...', err);
+          },
+        );
+
+
+
         Swal.fire({
           position: "top-end",
           icon: "success",
