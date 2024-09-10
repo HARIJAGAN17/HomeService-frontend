@@ -6,5 +6,6 @@ export type BookingResponse={
     customerId: string;
     providerId: string;
     serviceId: number;
+    customerEmail:string,
   }
   

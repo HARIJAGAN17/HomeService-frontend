@@ -72,6 +72,7 @@ export class ProviderBookingsComponent implements OnInit {
         customerName: booking.customerName,
         customerId: booking.customerId,
         providerId: booking.providerId,
+        customerEmail:booking.customerEmail,
         serviceId: booking.serviceId,
         serviceName: service?.serviceName || '',
         category: service?.category || '',
@@ -128,5 +129,8 @@ export class ProviderBookingsComponent implements OnInit {
     })
   }
 
+  StausMail(){
+
+  }
 
 }

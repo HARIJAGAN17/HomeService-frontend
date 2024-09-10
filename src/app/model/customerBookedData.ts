@@ -5,6 +5,7 @@ export type CustomerBookingServiceData = {
     customerName: string;
     customerId: string;
     providerId: string;
+    customerEmail:string;
     serviceId: number;
     serviceName: string;
     category: string;
