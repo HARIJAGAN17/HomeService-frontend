@@ -7,6 +7,7 @@ import { CustomerCrudService } from '../../../services/customer/customer-crud.se
 import { LoginserviceService } from '../../../services/loginservices/loginservice.service';
 import { ProviderCrudService } from '../../../services/provider/provider-crud.service';
 import { updateBookingStatus } from '../../../model/updateStatus';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-provider-bookings',
@@ -91,10 +92,38 @@ export class ProviderBookingsComponent implements OnInit {
 
   BookingStatusUpdateData:updateBookingStatus={status:''};
 
-  OnUpdateStatus(data:CustomerBookingServiceData){
-      this.BookingStatusUpdateData.status='Confirmed';
-      this.updateBookingStatus(data.bookingId,this.BookingStatusUpdateData);
-  }
+
+
+  currentBookingData: CustomerBookingServiceData = {
+    bookingId: 0,
+    date: '',
+    status: '',
+    customerName: '',
+    customerId: '',
+    providerId: '',
+    customerEmail: '',
+    serviceId: 0,
+    serviceName: '',
+    category: '',
+    description: '',
+    price: 0,
+    experience: 0,
+    providerName: '',
+    providerEmail: '',
+    location: ''
+};
+
+OnUpdateStatus(data: CustomerBookingServiceData) {
+  // Update the status
+  this.BookingStatusUpdateData.status = 'Confirmed';
+  this.updateBookingStatus(data.bookingId, this.BookingStatusUpdateData);
+
+  // Use type assertion if you are confident that a booking will always be found
+  this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
+
+  this.StatusMail("Confirmed",this.currentBookingData);
+}
+
 
   OnDeleteBooking(data:CustomerBookingServiceData){
 
@@ -102,7 +131,11 @@ export class ProviderBookingsComponent implements OnInit {
     this.customerService.DeleteBooking(bookingId).subscribe({
       next:(responseData:any)=>{
         console.log("Booking decline:"+responseData);
-        this.getBookingData();
+        this.BookingStatusUpdateData.status='Cancelled';
+        this.updateBookingStatus(bookingId,this.BookingStatusUpdateData);
+
+        this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
+        this.StatusMail("Declined",this.currentBookingData);
       },
       error:(error)=>{
         console.log(error);
@@ -129,8 +162,23 @@ export class ProviderBookingsComponent implements OnInit {
     })
   }
 
-  StausMail(){
-
+  StatusMail(status:string,data:CustomerBookingServiceData){
+    emailjs.init("RU2fbINeyQ4ziAvLK");
+    emailjs.send("service_rjvfc6q","template_472kxru",{
+      to_name: data.customerName,
+      booking_date: data.date,
+      booking_status: status,
+      customerName: data.customerName,
+      serviceName: data.serviceName,
+      category: data.category,
+      description: data.description,
+      price: data.price,
+      location: data.location,
+      providerName: data.providerName,
+      providerEmail: data.providerEmail,
+      to_email: data.customerEmail,
+      });
   }
+
 
 }

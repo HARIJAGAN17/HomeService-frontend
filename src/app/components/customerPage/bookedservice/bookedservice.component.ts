@@ -67,6 +67,7 @@ export class BookedserviceComponent implements OnInit {
         customerId: booking.customerId,
         providerId: booking.providerId,
         serviceId: booking.serviceId,
+        customerEmail:booking.customerEmail,
         serviceName: service?.serviceName || '',
         category: service?.category || '',
         description: service?.description || '',
