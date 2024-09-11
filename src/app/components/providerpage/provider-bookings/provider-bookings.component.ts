@@ -153,7 +153,7 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
       next:(responseData:any)=>{
         console.log("Booking decline:"+responseData);
         this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
-        this.FetchData();
+        this.getBookingData()
         //this.StatusMail("Declined",this.currentBookingData);
       },
       error:(error)=>{
@@ -188,7 +188,7 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
     this.customerService.DeleteBooking(data.bookingId).subscribe({
       next:(responseData:any)=>{
         console.log(responseData);
-        this.FetchData();
+        this.getBookingData();
       },
       error:(error)=>{
         console.log(error);
