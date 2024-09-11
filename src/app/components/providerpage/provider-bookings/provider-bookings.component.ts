@@ -21,6 +21,7 @@ export class ProviderBookingsComponent implements OnInit {
   ServiceData: ServiceResponse[] = [];
   currentProviderId: string = '';
   currentProviderData: CustomerBookingServiceData[] = [];
+  showCards:boolean=false;
 
   constructor(
     private customerService: CustomerCrudService,
@@ -88,6 +89,9 @@ export class ProviderBookingsComponent implements OnInit {
       };
     });
     console.log('Current Customer Data:', this.currentProviderData);
+    if(this.currentProviderData.length>0){
+      this.showCards=true;
+    }
   }
 
   //status part

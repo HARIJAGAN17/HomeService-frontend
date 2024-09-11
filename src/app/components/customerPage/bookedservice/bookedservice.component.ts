@@ -19,6 +19,8 @@ export class BookedserviceComponent implements OnInit {
   currentCustomerId: string = '';
   currentCustomerData: CustomerBookingServiceData[] = [];
 
+  showtable:boolean=false;
+
   constructor(
     private customerService: CustomerCrudService,
     private providerService: ProviderCrudService,
@@ -78,6 +80,10 @@ export class BookedserviceComponent implements OnInit {
         location: service?.location || ''
       };
     });
+
+    if(this.currentCustomerData.length>0){
+      this.showtable=true;
+    }
     console.log('Current Customer Data:', this.currentCustomerData);
   }
 }

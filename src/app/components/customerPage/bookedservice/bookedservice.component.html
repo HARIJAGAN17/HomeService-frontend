@@ -3,8 +3,10 @@
 
 <div class="container mt-5">
   <h1 class="mb-4">My Orders</h1>
-
-  <table class="table-container table table-striped table-bordered table-sm">
+  <div *ngIf="!showtable">
+    <h2 style="width:400px;border-radius: 10px;text-align: center;color: white;background-color: rgb(92, 74, 74);">No orders still add some !!</h2>
+  </div>
+  <table *ngIf="showtable" class="table-container table table-striped table-bordered table-sm">
     <thead class="thead-light bg-warning">
       <tr>
         <th class="date-column">Date</th>
