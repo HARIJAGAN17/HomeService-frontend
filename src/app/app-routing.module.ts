@@ -1,3 +1,4 @@
+import { BookingHistoryComponent } from './components/customerPage/booking-history/booking-history.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -38,6 +39,7 @@ const routes: Routes = [
     {path:"",redirectTo:"bookservice",pathMatch:"full"},
     {path:"bookservice",component:BookserviceComponent},
     {path:"bookedService",component:BookedserviceComponent},
+    {path:"bookingHistory",component:BookingHistoryComponent}
 
   ]},
   {path:"noauth",component:ForbiddenpageComponent},
