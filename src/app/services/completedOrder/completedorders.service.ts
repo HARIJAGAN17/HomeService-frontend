@@ -16,4 +16,8 @@ export class CompletedordersService {
 
     return this.http.post<CustomerBookingServiceData>(this.baseUrl,data);
   }
+
+  getCompletedServices():Observable<CustomerBookingServiceData[]>{
+    return this.http.get<CustomerBookingServiceData[]>(this.baseUrl);
+  }
 }
