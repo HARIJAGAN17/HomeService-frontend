@@ -24,6 +24,7 @@ import { BookserviceComponent } from './components/customerPage/bookservice/book
 import { BookedserviceComponent } from './components/customerPage/bookedservice/bookedservice.component';
 import { ProviderBookingsComponent } from './components/providerpage/provider-bookings/provider-bookings.component';
 import { BookingHistoryComponent } from './components/customerPage/booking-history/booking-history.component';
+import { ProviderbookinghistoryComponent } from './components/providerpage/providerbookinghistory/providerbookinghistory.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { BookingHistoryComponent } from './components/customerPage/booking-histo
     BookedserviceComponent,
     ProviderBookingsComponent,
     BookingHistoryComponent,
+    ProviderbookinghistoryComponent,
   ],
   imports: [
     BrowserModule,

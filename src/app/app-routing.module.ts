@@ -19,6 +19,7 @@ import { AddserviceComponent } from './components/providerpage/addservice/addser
 import { BookserviceComponent } from './components/customerPage/bookservice/bookservice.component';
 import { BookedserviceComponent } from './components/customerPage/bookedservice/bookedservice.component';
 import { ProviderBookingsComponent } from './components/providerpage/provider-bookings/provider-bookings.component';
+import { ProviderbookinghistoryComponent } from './components/providerpage/providerbookinghistory/providerbookinghistory.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:'full'},
@@ -33,7 +34,8 @@ const routes: Routes = [
     {path:"allServices",component:ProvidercontentComponent},
     {path:"myservice",component:MyservicesComponent},
     {path:"addservice",component:AddserviceComponent},
-    {path:"providerBookings",component:ProviderBookingsComponent}
+    {path:"providerBookings",component:ProviderBookingsComponent},
+    {path:"providerhistory",component:ProviderbookinghistoryComponent}
   ]},
   {path:"customer",component:CustomerLayoutComponent,canActivate:[AuthGuard,CustomerGuard],children:[
     {path:"",redirectTo:"bookservice",pathMatch:"full"},
