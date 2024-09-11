@@ -45,9 +45,18 @@
       <form (ngSubmit)="onPopSubmit()" #dateForm="ngForm">
         <div class="form-group">
           <label for="dateInput">Choose a date:</label>
-          <input type="date" id="dateInput" class="form-control" [(ngModel)]="selectedDate" name="dateInput" required>
+          <input 
+            type="date" 
+            id="dateInput" 
+            class="form-control" 
+            [(ngModel)]="selectedDate" 
+            name="dateInput" 
+            [attr.min]="minDate" 
+            required
+          >
         </div>
         <button type="submit" id="popsubmit" class="btn btn-primary btn-block" style="margin-top: 15px;">Submit</button>
       </form>
     </div>
   </div>
+  

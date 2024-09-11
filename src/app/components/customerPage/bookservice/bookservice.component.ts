@@ -16,6 +16,7 @@ export class BookserviceComponent {
   allServices: ServiceResponse[] = []; 
   filteredServices: ServiceResponse[] = []; 
   categories: string[] = []; 
+  minDate: string='';
 
   constructor(private providerService: ProviderCrudService,private customerService:CustomerCrudService,private loginservice:LoginserviceService) {}
 
@@ -32,6 +33,15 @@ export class BookserviceComponent {
         }
       }
     });
+    this.setMinDate();
+  }
+
+  setMinDate() {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = today.getFullYear();
+    this.minDate = `${year}-${month}-${day}`;
   }
 
   onCategoryChange(event: Event): void {
