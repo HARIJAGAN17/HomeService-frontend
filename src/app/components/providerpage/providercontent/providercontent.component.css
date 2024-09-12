@@ -30,3 +30,6 @@
     border-radius: 8px; 
     transform: translateY(-4px);
 }
+#filterlabel{
+  color: white;
+}

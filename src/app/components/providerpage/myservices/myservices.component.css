@@ -98,7 +98,9 @@
 .filterDiv {
   width: 200px;
 }
-
+#filterlabel{
+  color: white;
+}
 
 /* --------------popupForm----------------------------------- */
 .popup-container {

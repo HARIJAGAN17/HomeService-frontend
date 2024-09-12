@@ -1,8 +1,8 @@
 <div class="container mt-4">
   <div>
-    <h1>My Services</h1>
+    <!-- <h1>My Services</h1> -->
     <div class="filterDiv mb-4">
-      <label for="categoryFilter" class="form-label">Filter by Category:</label>
+      <label id="filterlabel" for="categoryFilter" class="form-label">Filter by Category:</label>
       <select id="categoryFilter" class="form-select" (change)="onCategoryChange($event)">
         <option value="">All Categories</option>
         <option *ngFor="let category of categories" [value]="category">{{category}}</option>
