@@ -140,7 +140,6 @@ export class BookserviceComponent {
 
 
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: "Your service is Booked",
           showConfirmButton: false,
