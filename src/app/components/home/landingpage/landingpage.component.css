@@ -17,11 +17,10 @@ app-navbar {
 
 .content {
   flex: 1;
-  padding-top: 60px
 }
 
 app-footer {
-  background-color: #f8f9fa; 
+  background-color: #343a40; 
   padding: 1rem;
 }
 
