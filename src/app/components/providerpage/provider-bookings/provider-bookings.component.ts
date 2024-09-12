@@ -9,6 +9,7 @@ import { ProviderCrudService } from '../../../services/provider/provider-crud.se
 import { updateBookingStatus } from '../../../model/updateStatus';
 import emailjs from '@emailjs/browser';
 import { CompletedordersService } from '../../../services/completedOrder/completedorders.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-provider-bookings',
@@ -27,7 +28,8 @@ export class ProviderBookingsComponent implements OnInit {
     private customerService: CustomerCrudService,
     private providerService: ProviderCrudService,
     private loginService: LoginserviceService,
-    private completedOrderservice:CompletedordersService
+    private completedOrderservice:CompletedordersService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -128,6 +130,9 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
   this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
 
   //this.StatusMail("Confirmed",this.currentBookingData);
+  this.toastr.success('Booking confirmed', 'Email sent',{
+    timeOut: 3000,
+  });
 }
 
 
@@ -155,6 +160,9 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
         this.currentBookingData = this.currentProviderData.find(booking => booking.bookingId === data.bookingId) as CustomerBookingServiceData;
         this.getBookingData()
         //this.StatusMail("Declined",this.currentBookingData);
+        this.toastr.error('Booking declined', 'Email sent', {
+          timeOut: 3000,
+        });
       },
       error:(error)=>{
         console.log(error);
@@ -164,13 +172,18 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
       }
       
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000)
   }
 
   completeOrder(data:CustomerBookingServiceData){
     this.BookingStatusUpdateData.status = 'Completed';
     this.updateBookingStatus(data.bookingId, this.BookingStatusUpdateData);
     //this.StatusMail("Completed",this.currentBookingData);
-    
+    this.toastr.success('Order completed', 'Email sent',{
+      timeOut: 3000,
+    });
     //first add to completed services
     data.status="Completed",
     this.completedOrderservice.AddCompletedServices(data).subscribe({
@@ -196,6 +209,9 @@ OnUpdateStatus(data: CustomerBookingServiceData) {
         console.log("complete status and delted the data from booking")
       }
     })
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000)
     
   }
 

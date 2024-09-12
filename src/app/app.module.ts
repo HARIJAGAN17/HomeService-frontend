@@ -26,6 +26,11 @@ import { ProviderBookingsComponent } from './components/providerpage/provider-bo
 import { BookingHistoryComponent } from './components/customerPage/booking-history/booking-history.component';
 import { ProviderbookinghistoryComponent } from './components/providerpage/providerbookinghistory/providerbookinghistory.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +61,8 @@ import { ProviderbookinghistoryComponent } from './components/providerpage/provi
     SweetAlert2Module.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [
     provideHttpClient(),
