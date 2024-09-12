@@ -27,8 +27,8 @@
         <div class="card-footer">
           <small class="text-muted">Contact: {{item.providerEmail}}</small>
           <div class="card-footer-actions">
-            <button class="btn btn-warning btn-sm" (click)="togglePopUp(); sendUpdate(item)">Update</button>
-            <button class="btn btn-danger btn-sm" (click)="onDelete(item.serviceId)">Delete</button>
+            <button class="btn btn-warning btn-sm" (click)="togglePopUp(); sendUpdate(item)"><i class="fa-solid fa-pen"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(item.serviceId)"><i class="fa-solid fa-trash"></i></button>
           </div>
         </div>
       </div>

@@ -47,3 +47,24 @@ h1 {
     width: 120px; 
   }
   
+  .noorder{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .noorder h3{
+    color: white;
+  }
+  .norderImage{
+    height: auto;
+    width: 300px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+
+  .norderImage img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+  }

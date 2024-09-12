@@ -1,8 +1,12 @@
 
 <div class="container mt-5">
   <!-- <h1 class="mb-4">My Orders</h1> -->
-  <div *ngIf="!showtable">
-    <h2 style="width:400px;border-radius: 10px;text-align: center;color: white;background-color: rgb(92, 74, 74);">No orders still add some !!</h2>
+  <div *ngIf="!showtable" class="noorder">
+    
+      <div class="norderImage">
+        <img src="https://media.tenor.com/4dKr3x9KxBcAAAAM/hungry-hangry.gif" alt="">
+      </div>
+      <h3>it's sad your cart looks empty !!!</h3>
   </div>
   <table *ngIf="showtable" class="table-container table table-striped table-bordered table-sm">
     <thead class="thead-light bg-warning">
