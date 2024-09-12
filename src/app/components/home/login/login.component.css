@@ -14,9 +14,10 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA);
+    /* background:url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA); */
+    background: url(https://image.lexica.art/full_webp/08389cd9-0cd8-4514-94eb-9d9bc171c3b9);
     background-size: cover;
-    background-position: center;
+    background-position:center 62%;
 }
 .wrapper {
     width: 420px;
