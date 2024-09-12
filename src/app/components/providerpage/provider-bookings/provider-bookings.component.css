@@ -81,3 +81,26 @@ h6, p {
 .btn-primary:hover {
   background-color: #0056b3;
 }
+
+.nobooking{
+  height: auto;
+  width: 300px;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+}
+
+.nobooking img{
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.noContent{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.noContent h3{
+  color:white;
+}

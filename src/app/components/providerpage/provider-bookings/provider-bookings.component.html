@@ -1,8 +1,12 @@
 <div class="container mt-5">
   <!-- <h1 class="mb-4">My Bookings</h1> -->
 
-  <div *ngIf="!showCards">
-    <h2 style="width:400px;border-radius: 10px;text-align: center;color: white;background-color: rgb(92, 74, 74);">No bookings so far !!</h2>
+  <div *ngIf="!showCards" class="noContent">
+
+    <div class="nobooking">
+      <img src="https://media.tenor.com/WeKxpDGmElMAAAAM/luluwpp.gif" alt="">
+    </div>
+     <h3>No bookings .....</h3>
   </div>
 
   <div *ngIf="showCards" class="row">
