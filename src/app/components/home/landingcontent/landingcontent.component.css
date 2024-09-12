@@ -1,0 +1,81 @@
+.mainContainer {
+  background: linear-gradient(to top, #5F197A, #782e82, #8a4589);
+}
+
+#features {
+  padding: 50px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.feature-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ---------------- about ------------------------ */
+
+.about-content {
+  color: white;
+  width: 700px;
+  margin-left: 50px;
+}
+.about-content h2{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.507);
+  margin-bottom: 10px;
+}
+.about-content p {
+  color: rgba(255, 255, 255, 0.788);
+  margin-bottom: 20px;
+}
+
+.about-container {
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to prevent overflow */
+  align-items: center;
+  max-width: 1600px; 
+}
+
+.about-container img {
+  max-width: 400px; /* Make image responsive */
+  height: auto;
+}
+
+.col-md-12 {
+  flex: 1; /* Allow content to use remaining space */
+}
+
+@media (max-width: 768px) {
+  .about-container {
+      flex-direction: column;
+  }
+
+  .about-container img {
+      width: 100%; /* Full width on smaller screens */
+  }
+}
