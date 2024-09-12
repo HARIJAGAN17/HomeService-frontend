@@ -21,6 +21,7 @@
     "@emailjs/browser": "^4.4.1",
     "@ionic/angular": "^8.2.7",
     "@sweetalert2/ngx-sweetalert2": "^12.4.0",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.13.1",
     "tslib": "^2.3.0",
