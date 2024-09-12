@@ -1,11 +1,10 @@
 <div class="container">
   <footer class="footer py-3">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2">About</a></li>
+      <li class="nav-item"><a href="/home" class="nav-link px-2">Home</a></li>
+      <li><a (click)="scrollTo('features')" class="nav-link px-2 text-white">Features</a></li>
+      <li><a (click)="scrollTo('about')" class="nav-link px-2 text-white">About</a></li>
+      <li><a (click)="scrollTo('contact')" class="nav-link px-2 text-white">Contact</a></li>
     </ul>
     <p class="text-center">© Copyright 2024 HomEase</p>
   </footer>
