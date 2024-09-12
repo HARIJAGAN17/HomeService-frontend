@@ -1,8 +1,9 @@
 <div class="booking-history">
     <!-- <h1>Completed Orders</h1> -->
-    <div *ngIf="completedOrders.length === 0" class="no-orders">
-      <p>No completed orders found.</p>
-    </div>
+    <div *ngIf="completedOrders.length==0" class="no-orders">
+      <img src="https://blog.carrot.link/wp-content/uploads/2023/08/supermarket-banner-with-various-items.jpeg" alt="No completed orders" class="no-orders-image">
+      <p class="no-orders-text">No orders so far.</p>
+    </div>    
     <div class="card-grid">
       <div *ngFor="let order of completedOrders" class="order-card">
         <div class="card-content">

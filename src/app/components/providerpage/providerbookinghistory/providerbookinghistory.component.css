@@ -100,3 +100,21 @@
     border-radius: 8px; 
     transform: translateY(-4px);
 }
+
+.no-orders {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-orders-image {
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.no-orders-text {
+  font-size: 18px;
+  color: #666;
+}
