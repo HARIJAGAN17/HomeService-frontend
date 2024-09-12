@@ -2,7 +2,7 @@
     <!-- <h1>Completed Orders</h1> -->
     <div *ngIf="completedOrders.length==0" class="no-orders">
       <img src="https://blog.carrot.link/wp-content/uploads/2023/08/supermarket-banner-with-various-items.jpeg" alt="No completed orders" class="no-orders-image">
-      <p class="no-orders-text">No orders so far.</p>
+      <p class="no-orders-text" style="color: whitesmoke;">No orders so far.</p>
     </div>    
     <div class="card-grid">
       <div *ngFor="let order of completedOrders" class="order-card">
