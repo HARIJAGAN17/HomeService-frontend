@@ -176,11 +176,11 @@
 }
 
 .carousel-control-prev {
-  left: 25%; /* Adjusted distance from the left edge */
+  left: 20%; 
 }
 
 .carousel-control-next {
-  right: 25%; /* Adjusted distance from the right edge */
+  right: 20%;
 }
 
 .carousel-control-prev-icon,
