@@ -1,3 +1,29 @@
 .container li{
     cursor: pointer;
 }
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; 
+    background-color: #FFD700; 
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  #homeIcon{
+    cursor: pointer;
+  }
