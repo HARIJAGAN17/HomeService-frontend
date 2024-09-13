@@ -41,8 +41,8 @@
 
 .about-content {
   color: white;
-  width: 700px;
-  margin-left: 50px;
+  width: 620px;
+  
 }
 .about-content h2{
   border-bottom: 1px solid rgba(255, 255, 255, 0.507);
@@ -62,7 +62,7 @@
 }
 
 .about-container img {
-  max-width: 400px; /* Make image responsive */
+  max-width: 350px; /* Make image responsive */
   height: auto;
 }
 
