@@ -25,7 +25,8 @@
   width: 100%;
   height: 100%;
   /* background-image: url('../../../../assets/images/content-bg.jpg'); */
-  background-image: linear-gradient(to top, #020741,#060e6d,#004e92);
+  /* background-image: linear-gradient(to top, #020741,#060e6d,#004e92); */
+  background-image: linear-gradient(to top, #390f49,#5F197A, #782e82, #8a4589);
   background-size:cover;
   background-position: center;
   background-repeat:no-repeat;
